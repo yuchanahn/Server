@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3522e66c-e691-4ca2-ad25-20c74ae39118}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>GameServer</RootNamespace>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
+    <LinuxProjectType>{D51BCBC9-82E9-4017-911E-C93873C4EA2B}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;include/cryptopp;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <IncludePath>include;include\flatbuffers;include\spdlog;include\linux;include/cpp_redis/core;$(IncludePath)</IncludePath>
+    <RemoteCompileCommandTimeout>360000</RemoteCompileCommandTimeout>
+    <LibraryPath>./lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)bin/</OutDir>
+    <IntDir>$(ProjectDir)obj/</IntDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClCompile Include="ClientSession.cpp" />
+    <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="Loginmanager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MysqlManager.cpp" />
+    <ClCompile Include="mysqlpool.cpp" />
+    <ClCompile Include="NetEvent.cpp" />
+    <ClCompile Include="NetworkSpeedTest.cpp" />
+    <ClCompile Include="NetworkStartManager.cpp" />
+    <ClCompile Include="oTimer.cpp" />
+    <ClCompile Include="Ping.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerMove.cpp" />
+    <ClCompile Include="PlayerStat.cpp" />
+    <ClCompile Include="PlayerStatSendManager.cpp" />
+    <ClCompile Include="ReadManager.cpp" />
+    <ClCompile Include="RedisManager.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="TLS.cpp" />
+    <ClCompile Include="WriteManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base_generated.h" />
+    <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="EventManager.h" />
+    <ClInclude Include="LoginData_generated.h" />
+    <ClInclude Include="Loginmanager.h" />
+    <ClInclude Include="Logmanager.h" />
+    <ClInclude Include="MysqlManager.h" />
+    <ClInclude Include="mysqlpool.h" />
+    <ClInclude Include="NetEvent.h" />
+    <ClInclude Include="NetworkSpeedTest.h" />
+    <ClInclude Include="NetworkStartManager.h" />
+    <ClInclude Include="oTimer.h" />
+    <ClInclude Include="Ping.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerMove.h" />
+    <ClInclude Include="PlayerStat.h" />
+    <ClInclude Include="PlayerStatSendManager.h" />
+    <ClInclude Include="ReadManager.h" />
+    <ClInclude Include="RedisManager.h" />
+    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="TimeManagerEvent.h" />
+    <ClInclude Include="WriteManager.h" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;../include/cryptopp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;cryptopp;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../include;../include/spdlog;../include/cpp_redis/core;../include/flatbuffers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>/usr/lib64/mysql;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>mysqlclient;pthread;cpp_redis;tacopie;%(LibraryDependencies)</LibraryDependencies>
+      <SharedLibrarySearchPath>../lib;%(SharedLibrarySearchPath)</SharedLibrarySearchPath>
+      <AdditionalOptions>-ldl</AdditionalOptions>
+    </Link>
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+    <RemotePreBuildEvent>
+      <AdditionalSourcesToCopyMapping>%(AdditionalSourcesToCopyMapping)</AdditionalSourcesToCopyMapping>
+      <Command>
+      </Command>
+    </RemotePreBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

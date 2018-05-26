@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="MysqlManager.cpp">
+      <Filter>DB\mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="mysqlpool.cpp">
+      <Filter>DB\mysql</Filter>
+    </ClCompile>
+    <ClCompile Include="RedisManager.cpp">
+      <Filter>DB\redis</Filter>
+    </ClCompile>
+    <ClCompile Include="Loginmanager.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadManager.cpp">
+      <Filter>NetRead</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="TLS.cpp">
+      <Filter>암호화</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp">
+      <Filter>PlayerInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="NetEvent.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Ping.cpp" />
+    <ClCompile Include="WriteManager.cpp">
+      <Filter>NetWrite</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSession.cpp">
+      <Filter>ASIO__server__main</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkStartManager.cpp" />
+    <ClCompile Include="oTimer.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkSpeedTest.cpp" />
+    <ClCompile Include="PlayerMove.cpp">
+      <Filter>PlayerInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStat.cpp">
+      <Filter>PlayerInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStatSendManager.cpp">
+      <Filter>PlayerInfo</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManagerEvent.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="MysqlManager.h">
+      <Filter>DB\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="mysqlpool.h">
+      <Filter>DB\mysql</Filter>
+    </ClInclude>
+    <ClInclude Include="RedisManager.h">
+      <Filter>DB\redis</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginData_generated.h">
+      <Filter>NetworkData</Filter>
+    </ClInclude>
+    <ClInclude Include="Loginmanager.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadManager.h">
+      <Filter>NetRead</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Logmanager.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSession.h">
+      <Filter>ASIO__server__main</Filter>
+    </ClInclude>
+    <ClInclude Include="Base_generated.h">
+      <Filter>NetworkData</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>PlayerInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="NetEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Ping.h" />
+    <ClInclude Include="WriteManager.h">
+      <Filter>NetWrite</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkStartManager.h" />
+    <ClInclude Include="oTimer.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkSpeedTest.h" />
+    <ClInclude Include="PlayerMove.h">
+      <Filter>PlayerInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStat.h">
+      <Filter>PlayerInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStatSendManager.h">
+      <Filter>PlayerInfo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="DB">
+      <UniqueIdentifier>{c69f8600-670b-4e06-a1be-f6eab0c15916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkData">
+      <UniqueIdentifier>{e71dccd3-e7a5-4a20-94f5-709938c7e4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{2120a2e3-25e6-41d3-8809-de6e7f279adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetRead">
+      <UniqueIdentifier>{320308b2-746f-4ba4-b7cf-326e9e285d97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetWrite">
+      <UniqueIdentifier>{e6b23bd2-233b-40a3-8bf1-b4c1a5abd365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DB\mysql">
+      <UniqueIdentifier>{02416b21-623c-4b03-9b65-081e7de14da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DB\redis">
+      <UniqueIdentifier>{282845cc-554e-4a47-96ef-d2adb6a4bf4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login">
+      <UniqueIdentifier>{b02c4df6-98cb-4f07-bfde-85b0e3697c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{cacc6eac-443f-4610-bc85-e41b49a1c970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{c6a266f3-8372-422b-86d6-be875bb05d86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="암호화">
+      <UniqueIdentifier>{6add3090-1f52-4474-8c70-614713ab74aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASIO__server__main">
+      <UniqueIdentifier>{9c2ded19-a5fe-4917-90dd-fa67ec2a670c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerInfo">
+      <UniqueIdentifier>{cd857bac-b3a1-4e71-b2fc-75b17d739ec9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

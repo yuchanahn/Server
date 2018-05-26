@@ -1,0 +1,25 @@
+﻿  Validating architecture
+  Validating sources
+  Copying sources remotely to '35.229.140.57'
+  Starting remote build
+  Compiling sources:
+  PlayerStat.cpp
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(121,69): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(134,75): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(147,67): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(152,65): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+  Linking objects
+  GameServer.vcxproj -> C:\Users\Atents\Desktop\git\atentsfile\GameServer\GameServer\bin/GameServer.out

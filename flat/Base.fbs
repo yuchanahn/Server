@@ -1,0 +1,78 @@
+enum Class : int{
+Base = 0,
+Player,
+id,
+test,
+ping,
+PlayerStat,
+SendMeStat,
+Monster
+}
+
+struct Vec3 {
+  x:float;
+  y:float;
+  z:float;
+}
+
+table id{
+cType:Class;
+ID:int;
+}
+
+table ping{
+cType:Class;
+time:long;
+}
+
+table test{
+cType:Class;
+num:long;
+}
+
+table Player{
+cType:Class;
+pos:Vec3;
+vel:Vec3;
+rot:Vec3;
+w:float;
+ID:int;
+
+Vertical:float;
+Horizontal:float;
+Jump:bool;
+Attack:bool;
+Run:bool;
+}
+
+
+table Monster{
+cType:Class;
+pos:Vec3;
+ID:int;
+ani:float;
+}
+
+
+
+table PlayerStat{
+cType:Class;
+HP:int;
+HPLim:int;
+MP:int;
+MPLim:int;
+LV:int;
+ID:int;
+}
+
+table SendMeStat{
+cType:Class;
+ID:int;
+}
+
+
+table Base{
+cType:Class;
+}
+
+root_type Base;

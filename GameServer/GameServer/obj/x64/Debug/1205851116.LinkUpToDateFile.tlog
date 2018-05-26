@@ -1,0 +1,1 @@
+g++ -o "/home/anyc123/projects/GameServer/bin/x64/Debug/GameServer.out" -Wl,--no-undefined -Wl,-L./lib -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/anyc123/projects/GameServer/obj/x64/Debug/main.o /home/anyc123/projects/GameServer/obj/x64/Debug/MysqlManager.o /home/anyc123/projects/GameServer/obj/x64/Debug/mysqlpool.o -llibmysql
