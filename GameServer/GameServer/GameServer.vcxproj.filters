@@ -53,6 +53,9 @@
     <ClCompile Include="PlayerStatSendManager.cpp">
       <Filter>PlayerInfo</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -115,6 +118,12 @@
     <ClInclude Include="PlayerStatSendManager.h">
       <Filter>PlayerInfo</Filter>
     </ClInclude>
+    <ClInclude Include="CPoint.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DB">
@@ -155,6 +164,9 @@
     </Filter>
     <Filter Include="PlayerInfo">
       <UniqueIdentifier>{cd857bac-b3a1-4e71-b2fc-75b17d739ec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Monster">
+      <UniqueIdentifier>{8069e4d9-6eab-42d2-8ad6-a16345f18235}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

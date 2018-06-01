@@ -107,6 +107,7 @@
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Loginmanager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MysqlManager.cpp" />
     <ClCompile Include="mysqlpool.cpp" />
     <ClCompile Include="NetEvent.cpp" />
@@ -127,10 +128,12 @@
   <ItemGroup>
     <ClInclude Include="Base_generated.h" />
     <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="CPoint.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="LoginData_generated.h" />
     <ClInclude Include="Loginmanager.h" />
     <ClInclude Include="Logmanager.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="MysqlManager.h" />
     <ClInclude Include="mysqlpool.h" />
     <ClInclude Include="NetEvent.h" />

@@ -65,7 +65,7 @@ private:
 
 
 	enum { max_length = 1024 };
-	char data_[max_length]; 
+	char data_[max_length];
 	char * cpyData;
 };
 
@@ -88,6 +88,7 @@ private:
 	NetworkSpeedTest * st;
 	cPlayerStat * playerStat;
 	NetEvent * playerStatSend;
+	oMonster * m_makeMonster; // 몬스터메이크 매니져 맨들어야힘.
 
 	void ServerStart();
 

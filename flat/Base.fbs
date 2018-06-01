@@ -50,7 +50,7 @@ table Monster{
 cType:Class;
 pos:Vec3;
 ID:int;
-ani:float;
+TargetID:int;
 }
 
 

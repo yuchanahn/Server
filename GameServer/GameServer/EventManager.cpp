@@ -22,5 +22,3 @@ void EventManager::OnEvent(Event e)
 	for (auto i : eventHandler[e]) 
 		i();
 }
-
-

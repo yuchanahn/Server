@@ -14,6 +14,11 @@ void PlayerMove::EventProsess(oPlayer * d, Base * d2)
 	((Player*)d2)->UnPackTo(player);
 	player->ID = d->id;
 	m_oPlayer = d;
+
+	auto DeletVal = d->pos;
+	d->pos = new Vec3(player->pos->x(), player->pos->y(), player->pos->z());
+	delete DeletVal;
+
 	Move();
 }
 
