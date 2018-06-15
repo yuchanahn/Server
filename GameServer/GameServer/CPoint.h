@@ -10,6 +10,15 @@ public:
 
 	CPoint() : x(0), y(0) { }
 	CPoint(T _x, T _y) : x(_x), y(_y) { }
+
+	void Set(T _x,T _y) {
+		x = _x;
+		y = _y;
+	}
+	void Set(CPoint& obj) {
+		x = obj.x;
+		y = obj.y;
+	}
 };
 
 template<typename T1, typename T2>

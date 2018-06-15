@@ -1,59 +1,82 @@
 #include "Monster.h"
 #include "Base_generated.h"
-#include "CPoint.h"
-#include "TimeManager.h"
-#include "WriteManager.h"
 #include "ClientSession.h"
+#include "oMonsterManager.h"
+
+#include <stdlib.h>
+#include <time.h>
+
+
 
 oMonster::oMonster()
 {
-	SetEventTime(0.1f);
-	TimeManager::GetInstance()->AddTimeEvent(this);
+	moveTime = 1.5f;
+	m_time = moveTime;
 
-	Range = 3;
-	MaxRange = 0.2f;
-	TargetID = -1;
+	Range = 5; 
+	RandRange = 20;
+	MaxRange = 1.0f;
+
+	target = nullptr;
 	ID = MonsterId++;
 }
+
+oMonster::oMonster(int _MonsterCodeID, double _moveTime, int _RandRange, double _Range, double _MaxRange)
+	: MonsterCodeID(_MonsterCodeID), moveTime(_moveTime) , RandRange(_RandRange), Range(_Range), MaxRange(_MaxRange){}
 
 oMonster::~oMonster()
 {
 
 }
 
-void oMonster::process()
+void oMonster::UpdatePosition()
 {
-	double S;
-	CPoint<double> Target_pos;
-	CPoint<double> my_pos(x, y);
+	srand(time(NULL));
+	bool isTargetIn = false;
 
-	for (auto &pos : session::GetSession()) {
-		Target_pos.x = pos.second->pos->x();
-		Target_pos.y = pos.second->pos->y();
+	for (auto &PlayerObj : session::GetSession()) {
+		CPoint<double> TargetPlayerPos(PlayerObj.second->pos->x(), PlayerObj.second->pos->z());
+		S = GetDistance(TargetPlayerPos, CurrnetPos);
 
-		S = GetDistance(Target_pos, my_pos);
+		if ((Range >= S) && (TargetPlayerPos.x && TargetPlayerPos.y)) {
+			TargetPos.Set(TargetPlayerPos);
 
-		if (Range <= S) {
-			TargetID = pos.first;
+			if(target != nullptr)
+				if (target->id != PlayerObj.second->id) {
+					PlayerObj.second->addEvent("missingTarget", 
+						[=]() {
+							if (PlayerObj.second->id == target->id) {
+								target = nullptr;
+							}
+						}
+					);
+				}
+
+			target = &(*PlayerObj.second);
+			isTargetIn = true;
 			break;
 		}
 	}
 
-	if (TargetID == -1) {
-		Target_pos.x = 0;
-		Target_pos.y = 0;
-
-		S = GetDistance(Target_pos, my_pos);
+	if (target == nullptr || !isTargetIn) {
+		if (m_time >= moveTime) {
+			m_time = 0;
+			TargetPos.Set(rand() % RandRange + 1, rand() % RandRange + 1);
+		}
+		S = GetDistance(TargetPos, CurrnetPos);
+		m_time += oMonsterManager::SendRate;
 	}
 
-	if (MaxRange > S) { //아니라면 이동안함, 인공지능 무브라면 랜덤좌표 수정.
-		x += (Target_pos.x - x) / S;
-		y += (Target_pos.y - y) / S;
+	if (MaxRange < S) {						
+		CurrnetPos.x += ((TargetPos.x - CurrnetPos.x) / S);
+		CurrnetPos.y += ((TargetPos.y - CurrnetPos.y) / S);
 	}
 
-	flatbuffers::FlatBufferBuilder fbb;
-	WriteManager::write(CreateMonster(fbb, Class::Class_Monster, new Vec3(x, 0, y), ID, TargetID), fbb);
-
+	
+	targetID = -1;
+	if (target != nullptr) {
+		targetID = target->id;
+	}
 }
 
 int oMonster::MonsterId;

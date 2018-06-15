@@ -105,6 +105,7 @@
   <ItemGroup>
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="Loginmanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="NetEvent.cpp" />
     <ClCompile Include="NetworkSpeedTest.cpp" />
     <ClCompile Include="NetworkStartManager.cpp" />
+    <ClCompile Include="oMonsterManager.cpp" />
     <ClCompile Include="oTimer.cpp" />
     <ClCompile Include="Ping.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -130,6 +132,7 @@
     <ClInclude Include="ClientSession.h" />
     <ClInclude Include="CPoint.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="EventSystem.h" />
     <ClInclude Include="LoginData_generated.h" />
     <ClInclude Include="Loginmanager.h" />
     <ClInclude Include="Logmanager.h" />
@@ -139,6 +142,7 @@
     <ClInclude Include="NetEvent.h" />
     <ClInclude Include="NetworkSpeedTest.h" />
     <ClInclude Include="NetworkStartManager.h" />
+    <ClInclude Include="oMonsterManager.h" />
     <ClInclude Include="oTimer.h" />
     <ClInclude Include="Ping.h" />
     <ClInclude Include="Player.h" />

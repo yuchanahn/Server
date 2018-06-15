@@ -56,6 +56,8 @@
     <ClCompile Include="Monster.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
+    <ClCompile Include="oMonsterManager.cpp" />
+    <ClCompile Include="EventSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -124,6 +126,8 @@
     <ClInclude Include="Monster.h">
       <Filter>Monster</Filter>
     </ClInclude>
+    <ClInclude Include="oMonsterManager.h" />
+    <ClInclude Include="EventSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DB">

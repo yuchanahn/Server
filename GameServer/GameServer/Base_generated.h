@@ -481,6 +481,7 @@ struct MonsterT : public flatbuffers::NativeTable {
 	std::unique_ptr<Vec3> pos;
 	int32_t ID;
 	int32_t TargetID;
+	std::unique_ptr<Vec3> TargetPos;
 	MonsterT()
 		: cType(Class_Base),
 		ID(0),
@@ -494,7 +495,8 @@ struct Monster FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 		VT_CTYPE = 4,
 		VT_POS = 6,
 		VT_ID = 8,
-		VT_TARGETID = 10
+		VT_TARGETID = 10,
+		VT_TARGETPOS = 12
 	};
 	Class cType() const {
 		return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
@@ -508,12 +510,16 @@ struct Monster FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 	int32_t TargetID() const {
 		return GetField<int32_t>(VT_TARGETID, 0);
 	}
+	const Vec3 *TargetPos() const {
+		return GetStruct<const Vec3 *>(VT_TARGETPOS);
+	}
 	bool Verify(flatbuffers::Verifier &verifier) const {
 		return VerifyTableStart(verifier) &&
 			VerifyField<int32_t>(verifier, VT_CTYPE) &&
 			VerifyField<Vec3>(verifier, VT_POS) &&
 			VerifyField<int32_t>(verifier, VT_ID) &&
 			VerifyField<int32_t>(verifier, VT_TARGETID) &&
+			VerifyField<Vec3>(verifier, VT_TARGETPOS) &&
 			verifier.EndTable();
 	}
 	MonsterT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
@@ -536,6 +542,9 @@ struct MonsterBuilder {
 	void add_TargetID(int32_t TargetID) {
 		fbb_.AddElement<int32_t>(Monster::VT_TARGETID, TargetID, 0);
 	}
+	void add_TargetPos(const Vec3 *TargetPos) {
+		fbb_.AddStruct(Monster::VT_TARGETPOS, TargetPos);
+	}
 	explicit MonsterBuilder(flatbuffers::FlatBufferBuilder &_fbb)
 		: fbb_(_fbb) {
 		start_ = fbb_.StartTable();
@@ -553,8 +562,10 @@ inline flatbuffers::Offset<Monster> CreateMonster(
 	Class cType = Class_Base,
 	const Vec3 *pos = 0,
 	int32_t ID = 0,
-	int32_t TargetID = 0) {
+	int32_t TargetID = 0,
+	const Vec3 *TargetPos = 0) {
 	MonsterBuilder builder_(_fbb);
+	builder_.add_TargetPos(TargetPos);
 	builder_.add_TargetID(TargetID);
 	builder_.add_ID(ID);
 	builder_.add_pos(pos);
@@ -966,6 +977,7 @@ inline void Monster::UnPackTo(MonsterT *_o, const flatbuffers::resolver_function
 	{ auto _e = pos(); if (_e) _o->pos = std::unique_ptr<Vec3>(new Vec3(*_e)); };
 	{ auto _e = ID(); _o->ID = _e; };
 	{ auto _e = TargetID(); _o->TargetID = _e; };
+	{ auto _e = TargetPos(); if (_e) _o->TargetPos = std::unique_ptr<Vec3>(new Vec3(*_e)); };
 }
 
 inline flatbuffers::Offset<Monster> Monster::Pack(flatbuffers::FlatBufferBuilder &_fbb, const MonsterT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
@@ -980,12 +992,14 @@ inline flatbuffers::Offset<Monster> CreateMonster(flatbuffers::FlatBufferBuilder
 	auto _pos = _o->pos ? _o->pos.get() : 0;
 	auto _ID = _o->ID;
 	auto _TargetID = _o->TargetID;
+	auto _TargetPos = _o->TargetPos ? _o->TargetPos.get() : 0;
 	return CreateMonster(
 		_fbb,
 		_cType,
 		_pos,
 		_ID,
-		_TargetID);
+		_TargetID,
+		_TargetPos);
 }
 
 inline PlayerStatT *PlayerStat::UnPack(const flatbuffers::resolver_function_t *_resolver) const {

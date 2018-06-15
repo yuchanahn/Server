@@ -51,6 +51,7 @@ cType:Class;
 pos:Vec3;
 ID:int;
 TargetID:int;
+TargetPos:Vec3;
 }
 
 

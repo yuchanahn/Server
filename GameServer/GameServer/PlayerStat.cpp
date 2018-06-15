@@ -7,6 +7,7 @@ void cPlayerStat::EventProsess(oPlayer * d, Base * d2)
 {
 	// 그냥 에코네...
 	((PlayerStat*)d2)->UnPackTo(pStat);
+	pStat->ID = d->id;
 	((PlayerStat*)d2)->UnPackTo(d->m_stat);
 	flatbuffers::FlatBufferBuilder fbb;
 	WriteManager::write<PlayerStat>(PlayerStat::Pack(fbb, pStat), fbb);

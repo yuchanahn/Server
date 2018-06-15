@@ -36,8 +36,6 @@ class session : public TimeManagerEvent, public std::enable_shared_from_this<ses
 public:
 	bool isLogin = false;
 
-
-
 	session(tcp::socket socket)
 		: socket_(std::move(socket)),
 		timer_(socket_.get_io_service()),
@@ -88,7 +86,6 @@ private:
 	NetworkSpeedTest * st;
 	cPlayerStat * playerStat;
 	NetEvent * playerStatSend;
-	oMonster * m_makeMonster; // 몬스터메이크 매니져 맨들어야힘.
 
 	void ServerStart();
 

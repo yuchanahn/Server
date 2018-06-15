@@ -2,7 +2,7 @@
 #include "Base_generated.h"
 #include "PlayerMove.h"
 #include "ReadManager.h"
-
+#include "Monster.h"
 
 
 
@@ -10,6 +10,9 @@ void oPlayer::do_writeForServer(char * str, int len)
 {
 
 }
+
+
+
 
 oPlayer::oPlayer()
 {
@@ -20,5 +23,6 @@ oPlayer::oPlayer()
 
 oPlayer::~oPlayer()
 {
+	OnEvent("missingTarget");
 }
 

@@ -33,6 +33,7 @@
 #include "PlayerStat.h"
 #include "PlayerStatSendManager.h"
 #include "Monster.h"
+#include "oMonsterManager.h"
 
 
 using asio::ip::tcp;
@@ -161,11 +162,8 @@ void server::ServerStart()
 	st = new NetworkSpeedTest;
 	playerStat = new cPlayerStat;
 	playerStatSend = new PlayerStatSendManager;
-	m_makeMonster = new oMonster;
 
-
-
-	
+	oMonsterManager::Start();
 }
 
 

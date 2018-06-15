@@ -1,4 +1,5 @@
 #pragma once
+#include "EventSystem.h"
 
 struct Vec3;
 struct Pos;
@@ -11,14 +12,18 @@ class cPlayerStat;
 class NetEvent;
 class oMonster;
 
-class oPlayer
+
+class oPlayer : public EventSystem
 {
 public:
 	int id;
 	PlayerStatT * m_stat;
 	Vec3 * pos;
+	
 
 	virtual void do_writeForServer(char * str, int len);
+
+
 	oPlayer();
 	virtual ~oPlayer();
 };

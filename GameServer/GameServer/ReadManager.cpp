@@ -27,7 +27,7 @@ void ReadManager::Read(char data_[1024], oPlayer * id)
 
 
 	if (GetNEvents().find(data->cType()) == GetNEvents().end()) {
-		printf("not real data!\n");
+		printf("not real data!\nfor : %d\n", id->id);
 		return;
 	}
 
