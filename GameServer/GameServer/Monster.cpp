@@ -10,12 +10,12 @@
 
 oMonster::oMonster()
 {
-	moveTime = 1.5f;
+	moveTime = 2.0f;
 	m_time = moveTime;
 
 	Range = 5; 
 	RandRange = 20;
-	MaxRange = 1.0f;
+	MaxRange = 2.0f;
 
 	target = nullptr;
 	ID = MonsterId++;
