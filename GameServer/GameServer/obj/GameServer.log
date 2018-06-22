@@ -3,60 +3,43 @@
   Copying sources remotely to '35.229.140.57'
   Starting remote build
   Compiling sources:
-  Monster.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(121,69): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(134,75): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(147,67): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(152,65): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning :    return timer_queues_.wait_duration_msec(5 * 60 * 1000);
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning :                                                         ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning :        state &= ~non_blocking;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning :        state &= ~(user_set_non_blocking | internal_non_blocking);
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning :        state &= ~internal_non_blocking;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning :        state &= ~enable_connection_aborted;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning :          state &= ~(user_set_non_blocking | internal_non_blocking);
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning :                ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning :        state &= ~non_blocking;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning :        state &= ~(user_set_non_blocking | internal_non_blocking);
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning :        state &= ~internal_non_blocking;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning :              ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning :          state &= ~(user_set_non_blocking | internal_non_blocking);
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning :                ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(22,9): warning : ‘oMonster::moveTime’ will be initialized after [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(22,9): warning :   double moveTime;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(22,9): warning :          ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning : ‘int oMonster::RandRange’ [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning :   int RandRange;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning :       ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp(24,1): warning : when initialized here [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning : ‘oMonster::RandRange’ will be initialized after [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning :   int RandRange;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(19,6): warning :       ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(18,9): warning : ‘double oMonster::Range’ [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(18,9): warning :   double Range;
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h(18,9): warning :          ^
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp(24,1): warning : when initialized here [-Wreorder]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp(34,17): warning : conversion to ‘unsigned int’ from ‘time_t {aka long int}’ may alter its value [-Wconversion]
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp(34,17): warning :   srand(time(NULL));
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp(34,17): warning :                  ^
+  oMonsterStatManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(121,69): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(134,75): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(147,67): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\eventfd_select_interrupter.ipp(152,65): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning : conversion to ‘int’ from ‘long int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning :    return timer_queues_.wait_duration_msec(5 * 60 * 1000);
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\epoll_reactor.ipp(551,56): warning :                                                         ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning :        state &= ~non_blocking;
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(344,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning :        state &= ~(user_set_non_blocking | internal_non_blocking);
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(396,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning :        state &= ~internal_non_blocking;
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(445,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning :        state &= ~enable_connection_aborted;
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1457,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning : conversion to ‘asio::detail::socket_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning :          state &= ~(user_set_non_blocking | internal_non_blocking);
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(1738,15): warning :                ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\socket_ops.ipp(3324,79): warning : conversion to ‘socklen_t {aka unsigned int}’ from ‘std::size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning :        state &= ~non_blocking;
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(68,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning :        state &= ~(user_set_non_blocking | internal_non_blocking);
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(113,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning :        state &= ~internal_non_blocking;
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(159,13): warning :              ^
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning : conversion to ‘asio::detail::descriptor_ops::state_type {aka unsigned char}’ from ‘int’ may alter its value [-Wconversion]
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning :          state &= ~(user_set_non_blocking | internal_non_blocking);
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\..\include\asio\detail\impl\descriptor_ops.ipp(357,15): warning :                ^
   Linking objects
-  GameServer.vcxproj -> C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\bin/GameServer.out
+  GameServer.vcxproj -> C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\bin/GameServer.out

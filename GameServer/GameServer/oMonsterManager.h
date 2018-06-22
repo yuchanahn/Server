@@ -1,6 +1,8 @@
 #pragma once
 #include "TimeManagerEvent.h"
 #include "Monster.h"
+#include "map"
+
 
 class oMonsterManager : public TimeManagerEvent
 {
@@ -8,10 +10,10 @@ class oMonsterManager : public TimeManagerEvent
 	static oMonsterManager * instance;
 	oMonsterManager();
 
-	oMonster mon;
 
 public:
 
+	static std::map<int, oMonster> Monsters;
 	static double SendRate;
 
 

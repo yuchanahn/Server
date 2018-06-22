@@ -6,7 +6,8 @@ test,
 ping,
 PlayerStat,
 SendMeStat,
-Monster
+Monster,
+MonsterStat
 }
 
 struct Vec3 {
@@ -52,9 +53,14 @@ pos:Vec3;
 ID:int;
 TargetID:int;
 TargetPos:Vec3;
+Ani:float;
 }
 
-
+table MonsterStat{
+cType:Class;
+HP:int;
+ID:int;
+}
 
 table PlayerStat{
 cType:Class;
@@ -68,6 +74,7 @@ ID:int;
 
 table SendMeStat{
 cType:Class;
+StatDataType:Class;
 ID:int;
 }
 

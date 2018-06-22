@@ -12,5 +12,6 @@ public enum Class : int
  PlayerStat = 5,
  SendMeStat = 6,
  Monster = 7,
+ MonsterStat = 8,
 };
 

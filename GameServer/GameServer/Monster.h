@@ -3,6 +3,7 @@
 
 class oPlayer;
 
+struct MonsterStatT;
 
 
 
@@ -12,6 +13,8 @@ class oMonster
 	static int MonsterId;
 public:
 	// == server data == //
+	MonsterStatT * Stat;
+
 	int ID;
 	int MonsterCodeID;
 
@@ -22,9 +25,10 @@ public:
 	double moveTime;
 
 	int targetID;
+	float AniNumber = 0.1f;
 
 	double S;
-
+	
 	CPoint<double> CurrnetPos;
 	CPoint<double> TargetPos;
 	// ================== //

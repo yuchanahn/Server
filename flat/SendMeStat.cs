@@ -15,20 +15,24 @@ public struct SendMeStat : IFlatbufferObject
   public SendMeStat __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public Class CType { get { int o = __p.__offset(4); return o != 0 ? (Class)__p.bb.GetInt(o + __p.bb_pos) : Class.Base; } }
-  public int ID { get { int o = __p.__offset(6); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
+  public Class StatDataType { get { int o = __p.__offset(6); return o != 0 ? (Class)__p.bb.GetInt(o + __p.bb_pos) : Class.Base; } }
+  public int ID { get { int o = __p.__offset(8); return o != 0 ? __p.bb.GetInt(o + __p.bb_pos) : (int)0; } }
 
   public static Offset<SendMeStat> CreateSendMeStat(FlatBufferBuilder builder,
       Class cType = Class.Base,
+      Class StatDataType = Class.Base,
       int ID = 0) {
-    builder.StartObject(2);
+    builder.StartObject(3);
     SendMeStat.AddID(builder, ID);
+    SendMeStat.AddStatDataType(builder, StatDataType);
     SendMeStat.AddCType(builder, cType);
     return SendMeStat.EndSendMeStat(builder);
   }
 
-  public static void StartSendMeStat(FlatBufferBuilder builder) { builder.StartObject(2); }
+  public static void StartSendMeStat(FlatBufferBuilder builder) { builder.StartObject(3); }
   public static void AddCType(FlatBufferBuilder builder, Class cType) { builder.AddInt(0, (int)cType, 0); }
-  public static void AddID(FlatBufferBuilder builder, int ID) { builder.AddInt(1, ID, 0); }
+  public static void AddStatDataType(FlatBufferBuilder builder, Class StatDataType) { builder.AddInt(1, (int)StatDataType, 0); }
+  public static void AddID(FlatBufferBuilder builder, int ID) { builder.AddInt(2, ID, 0); }
   public static Offset<SendMeStat> EndSendMeStat(FlatBufferBuilder builder) {
     int o = builder.EndObject();
     return new Offset<SendMeStat>(o);

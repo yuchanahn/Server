@@ -50,14 +50,19 @@
     <ClCompile Include="PlayerStat.cpp">
       <Filter>PlayerInfo</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerStatSendManager.cpp">
-      <Filter>PlayerInfo</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
-    <ClCompile Include="oMonsterManager.cpp" />
     <ClCompile Include="EventSystem.cpp" />
+    <ClCompile Include="oMonsterManager.cpp">
+      <Filter>Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="StatSendManager.cpp">
+      <Filter>SendRecv</Filter>
+    </ClCompile>
+    <ClCompile Include="oMonsterStatManager.cpp">
+      <Filter>Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -117,17 +122,22 @@
     <ClInclude Include="PlayerStat.h">
       <Filter>PlayerInfo</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerStatSendManager.h">
-      <Filter>PlayerInfo</Filter>
-    </ClInclude>
     <ClInclude Include="CPoint.h">
       <Filter>Monster</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Monster</Filter>
     </ClInclude>
-    <ClInclude Include="oMonsterManager.h" />
     <ClInclude Include="EventSystem.h" />
+    <ClInclude Include="oMonsterManager.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="StatSendManager.h">
+      <Filter>SendRecv</Filter>
+    </ClInclude>
+    <ClInclude Include="oMonsterStatManager.h">
+      <Filter>Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DB">
@@ -171,6 +181,9 @@
     </Filter>
     <Filter Include="Monster">
       <UniqueIdentifier>{8069e4d9-6eab-42d2-8ad6-a16345f18235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SendRecv">
+      <UniqueIdentifier>{b5ec7fd1-e8ae-4211-a76e-ae9d2dcc5200}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

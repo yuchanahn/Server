@@ -1,51 +1,53 @@
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ClientSession.cpp|/home/anyc123/projects/GameServer/ClientSession.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer|/home/anyc123/projects/GameServer
-@C:\Users\Atents\Desktop\git\Server\GameServer\GameServer|@/home/anyc123/projects/GameServer
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventManager.cpp|/home/anyc123/projects/GameServer/EventManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventSystem.cpp|/home/anyc123/projects/GameServer/EventSystem.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Loginmanager.cpp|/home/anyc123/projects/GameServer/Loginmanager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\main.cpp|/home/anyc123/projects/GameServer/main.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp|/home/anyc123/projects/GameServer/Monster.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\MysqlManager.cpp|/home/anyc123/projects/GameServer/MysqlManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.cpp|/home/anyc123/projects/GameServer/mysqlpool.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetEvent.cpp|/home/anyc123/projects/GameServer/NetEvent.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkSpeedTest.cpp|/home/anyc123/projects/GameServer/NetworkSpeedTest.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkStartManager.cpp|/home/anyc123/projects/GameServer/NetworkStartManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterManager.cpp|/home/anyc123/projects/GameServer/oMonsterManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oTimer.cpp|/home/anyc123/projects/GameServer/oTimer.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Ping.cpp|/home/anyc123/projects/GameServer/Ping.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Player.cpp|/home/anyc123/projects/GameServer/Player.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerMove.cpp|/home/anyc123/projects/GameServer/PlayerMove.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStat.cpp|/home/anyc123/projects/GameServer/PlayerStat.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStatSendManager.cpp|/home/anyc123/projects/GameServer/PlayerStatSendManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ReadManager.cpp|/home/anyc123/projects/GameServer/ReadManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\RedisManager.cpp|/home/anyc123/projects/GameServer/RedisManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManager.cpp|/home/anyc123/projects/GameServer/TimeManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TLS.cpp|/home/anyc123/projects/GameServer/TLS.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\WriteManager.cpp|/home/anyc123/projects/GameServer/WriteManager.cpp
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Base_generated.h|/home/anyc123/projects/GameServer/Base_generated.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ClientSession.h|/home/anyc123/projects/GameServer/ClientSession.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\CPoint.h|/home/anyc123/projects/GameServer/CPoint.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventManager.h|/home/anyc123/projects/GameServer/EventManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventSystem.h|/home/anyc123/projects/GameServer/EventSystem.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\LoginData_generated.h|/home/anyc123/projects/GameServer/LoginData_generated.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Loginmanager.h|/home/anyc123/projects/GameServer/Loginmanager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Logmanager.h|/home/anyc123/projects/GameServer/Logmanager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h|/home/anyc123/projects/GameServer/Monster.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\MysqlManager.h|/home/anyc123/projects/GameServer/MysqlManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.h|/home/anyc123/projects/GameServer/mysqlpool.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetEvent.h|/home/anyc123/projects/GameServer/NetEvent.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkSpeedTest.h|/home/anyc123/projects/GameServer/NetworkSpeedTest.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkStartManager.h|/home/anyc123/projects/GameServer/NetworkStartManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterManager.h|/home/anyc123/projects/GameServer/oMonsterManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oTimer.h|/home/anyc123/projects/GameServer/oTimer.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Ping.h|/home/anyc123/projects/GameServer/Ping.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Player.h|/home/anyc123/projects/GameServer/Player.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerMove.h|/home/anyc123/projects/GameServer/PlayerMove.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStat.h|/home/anyc123/projects/GameServer/PlayerStat.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStatSendManager.h|/home/anyc123/projects/GameServer/PlayerStatSendManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ReadManager.h|/home/anyc123/projects/GameServer/ReadManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\RedisManager.h|/home/anyc123/projects/GameServer/RedisManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManager.h|/home/anyc123/projects/GameServer/TimeManager.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManagerEvent.h|/home/anyc123/projects/GameServer/TimeManagerEvent.h
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\WriteManager.h|/home/anyc123/projects/GameServer/WriteManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ClientSession.cpp|/home/anyc123/projects/GameServer/ClientSession.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer|/home/anyc123/projects/GameServer
+@C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer|@/home/anyc123/projects/GameServer
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventManager.cpp|/home/anyc123/projects/GameServer/EventManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventSystem.cpp|/home/anyc123/projects/GameServer/EventSystem.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Loginmanager.cpp|/home/anyc123/projects/GameServer/Loginmanager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\main.cpp|/home/anyc123/projects/GameServer/main.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Monster.cpp|/home/anyc123/projects/GameServer/Monster.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\MysqlManager.cpp|/home/anyc123/projects/GameServer/MysqlManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\mysqlpool.cpp|/home/anyc123/projects/GameServer/mysqlpool.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetEvent.cpp|/home/anyc123/projects/GameServer/NetEvent.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkSpeedTest.cpp|/home/anyc123/projects/GameServer/NetworkSpeedTest.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkStartManager.cpp|/home/anyc123/projects/GameServer/NetworkStartManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterManager.cpp|/home/anyc123/projects/GameServer/oMonsterManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterStatManager.cpp|/home/anyc123/projects/GameServer/oMonsterStatManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oTimer.cpp|/home/anyc123/projects/GameServer/oTimer.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Ping.cpp|/home/anyc123/projects/GameServer/Ping.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Player.cpp|/home/anyc123/projects/GameServer/Player.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerMove.cpp|/home/anyc123/projects/GameServer/PlayerMove.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerStat.cpp|/home/anyc123/projects/GameServer/PlayerStat.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\StatSendManager.cpp|/home/anyc123/projects/GameServer/StatSendManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ReadManager.cpp|/home/anyc123/projects/GameServer/ReadManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\RedisManager.cpp|/home/anyc123/projects/GameServer/RedisManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManager.cpp|/home/anyc123/projects/GameServer/TimeManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TLS.cpp|/home/anyc123/projects/GameServer/TLS.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\WriteManager.cpp|/home/anyc123/projects/GameServer/WriteManager.cpp
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Base_generated.h|/home/anyc123/projects/GameServer/Base_generated.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ClientSession.h|/home/anyc123/projects/GameServer/ClientSession.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\CPoint.h|/home/anyc123/projects/GameServer/CPoint.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventManager.h|/home/anyc123/projects/GameServer/EventManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventSystem.h|/home/anyc123/projects/GameServer/EventSystem.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\LoginData_generated.h|/home/anyc123/projects/GameServer/LoginData_generated.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Loginmanager.h|/home/anyc123/projects/GameServer/Loginmanager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Logmanager.h|/home/anyc123/projects/GameServer/Logmanager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Monster.h|/home/anyc123/projects/GameServer/Monster.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\MysqlManager.h|/home/anyc123/projects/GameServer/MysqlManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\mysqlpool.h|/home/anyc123/projects/GameServer/mysqlpool.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetEvent.h|/home/anyc123/projects/GameServer/NetEvent.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkSpeedTest.h|/home/anyc123/projects/GameServer/NetworkSpeedTest.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkStartManager.h|/home/anyc123/projects/GameServer/NetworkStartManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterManager.h|/home/anyc123/projects/GameServer/oMonsterManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterStatManager.h|/home/anyc123/projects/GameServer/oMonsterStatManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oTimer.h|/home/anyc123/projects/GameServer/oTimer.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Ping.h|/home/anyc123/projects/GameServer/Ping.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Player.h|/home/anyc123/projects/GameServer/Player.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerMove.h|/home/anyc123/projects/GameServer/PlayerMove.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerStat.h|/home/anyc123/projects/GameServer/PlayerStat.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\StatSendManager.h|/home/anyc123/projects/GameServer/StatSendManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ReadManager.h|/home/anyc123/projects/GameServer/ReadManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\RedisManager.h|/home/anyc123/projects/GameServer/RedisManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManager.h|/home/anyc123/projects/GameServer/TimeManager.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManagerEvent.h|/home/anyc123/projects/GameServer/TimeManagerEvent.h
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\WriteManager.h|/home/anyc123/projects/GameServer/WriteManager.h

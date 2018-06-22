@@ -23,6 +23,9 @@ struct PlayerT;
 struct Monster;
 struct MonsterT;
 
+struct MonsterStat;
+struct MonsterStatT;
+
 struct PlayerStat;
 struct PlayerStatT;
 
@@ -41,11 +44,12 @@ enum Class {
   Class_PlayerStat = 5,
   Class_SendMeStat = 6,
   Class_Monster = 7,
+  Class_MonsterStat = 8,
   Class_MIN = Class_Base,
-  Class_MAX = Class_Monster
+  Class_MAX = Class_MonsterStat
 };
 
-inline const Class (&EnumValuesClass())[8] {
+inline const Class (&EnumValuesClass())[9] {
   static const Class values[] = {
     Class_Base,
     Class_Player,
@@ -54,7 +58,8 @@ inline const Class (&EnumValuesClass())[8] {
     Class_ping,
     Class_PlayerStat,
     Class_SendMeStat,
-    Class_Monster
+    Class_Monster,
+    Class_MonsterStat
   };
   return values;
 }
@@ -69,6 +74,7 @@ inline const char * const *EnumNamesClass() {
     "PlayerStat",
     "SendMeStat",
     "Monster",
+    "MonsterStat",
     nullptr
   };
   return names;
@@ -482,10 +488,12 @@ struct MonsterT : public flatbuffers::NativeTable {
   int32_t ID;
   int32_t TargetID;
   std::unique_ptr<Vec3> TargetPos;
+  float Ani;
   MonsterT()
       : cType(Class_Base),
         ID(0),
-        TargetID(0) {
+        TargetID(0),
+        Ani(0.0f) {
   }
 };
 
@@ -496,7 +504,8 @@ struct Monster FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_POS = 6,
     VT_ID = 8,
     VT_TARGETID = 10,
-    VT_TARGETPOS = 12
+    VT_TARGETPOS = 12,
+    VT_ANI = 14
   };
   Class cType() const {
     return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
@@ -513,6 +522,9 @@ struct Monster FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const Vec3 *TargetPos() const {
     return GetStruct<const Vec3 *>(VT_TARGETPOS);
   }
+  float Ani() const {
+    return GetField<float>(VT_ANI, 0.0f);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_CTYPE) &&
@@ -520,6 +532,7 @@ struct Monster FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<int32_t>(verifier, VT_ID) &&
            VerifyField<int32_t>(verifier, VT_TARGETID) &&
            VerifyField<Vec3>(verifier, VT_TARGETPOS) &&
+           VerifyField<float>(verifier, VT_ANI) &&
            verifier.EndTable();
   }
   MonsterT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
@@ -545,6 +558,9 @@ struct MonsterBuilder {
   void add_TargetPos(const Vec3 *TargetPos) {
     fbb_.AddStruct(Monster::VT_TARGETPOS, TargetPos);
   }
+  void add_Ani(float Ani) {
+    fbb_.AddElement<float>(Monster::VT_ANI, Ani, 0.0f);
+  }
   explicit MonsterBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
@@ -563,8 +579,10 @@ inline flatbuffers::Offset<Monster> CreateMonster(
     const Vec3 *pos = 0,
     int32_t ID = 0,
     int32_t TargetID = 0,
-    const Vec3 *TargetPos = 0) {
+    const Vec3 *TargetPos = 0,
+    float Ani = 0.0f) {
   MonsterBuilder builder_(_fbb);
+  builder_.add_Ani(Ani);
   builder_.add_TargetPos(TargetPos);
   builder_.add_TargetID(TargetID);
   builder_.add_ID(ID);
@@ -574,6 +592,84 @@ inline flatbuffers::Offset<Monster> CreateMonster(
 }
 
 flatbuffers::Offset<Monster> CreateMonster(flatbuffers::FlatBufferBuilder &_fbb, const MonsterT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+
+struct MonsterStatT : public flatbuffers::NativeTable {
+  typedef MonsterStat TableType;
+  Class cType;
+  int32_t HP;
+  int32_t ID;
+  MonsterStatT()
+      : cType(Class_Base),
+        HP(0),
+        ID(0) {
+  }
+};
+
+struct MonsterStat FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  typedef MonsterStatT NativeTableType;
+  enum {
+    VT_CTYPE = 4,
+    VT_HP = 6,
+    VT_ID = 8
+  };
+  Class cType() const {
+    return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
+  }
+  int32_t HP() const {
+    return GetField<int32_t>(VT_HP, 0);
+  }
+  int32_t ID() const {
+    return GetField<int32_t>(VT_ID, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<int32_t>(verifier, VT_CTYPE) &&
+           VerifyField<int32_t>(verifier, VT_HP) &&
+           VerifyField<int32_t>(verifier, VT_ID) &&
+           verifier.EndTable();
+  }
+  MonsterStatT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+  void UnPackTo(MonsterStatT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+  static flatbuffers::Offset<MonsterStat> Pack(flatbuffers::FlatBufferBuilder &_fbb, const MonsterStatT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+};
+
+struct MonsterStatBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_cType(Class cType) {
+    fbb_.AddElement<int32_t>(MonsterStat::VT_CTYPE, static_cast<int32_t>(cType), 0);
+  }
+  void add_HP(int32_t HP) {
+    fbb_.AddElement<int32_t>(MonsterStat::VT_HP, HP, 0);
+  }
+  void add_ID(int32_t ID) {
+    fbb_.AddElement<int32_t>(MonsterStat::VT_ID, ID, 0);
+  }
+  explicit MonsterStatBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  MonsterStatBuilder &operator=(const MonsterStatBuilder &);
+  flatbuffers::Offset<MonsterStat> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<MonsterStat>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<MonsterStat> CreateMonsterStat(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    Class cType = Class_Base,
+    int32_t HP = 0,
+    int32_t ID = 0) {
+  MonsterStatBuilder builder_(_fbb);
+  builder_.add_ID(ID);
+  builder_.add_HP(HP);
+  builder_.add_cType(cType);
+  return builder_.Finish();
+}
+
+flatbuffers::Offset<MonsterStat> CreateMonsterStat(flatbuffers::FlatBufferBuilder &_fbb, const MonsterStatT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 
 struct PlayerStatT : public flatbuffers::NativeTable {
   typedef PlayerStat TableType;
@@ -704,9 +800,11 @@ flatbuffers::Offset<PlayerStat> CreatePlayerStat(flatbuffers::FlatBufferBuilder 
 struct SendMeStatT : public flatbuffers::NativeTable {
   typedef SendMeStat TableType;
   Class cType;
+  Class StatDataType;
   int32_t ID;
   SendMeStatT()
       : cType(Class_Base),
+        StatDataType(Class_Base),
         ID(0) {
   }
 };
@@ -715,10 +813,14 @@ struct SendMeStat FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   typedef SendMeStatT NativeTableType;
   enum {
     VT_CTYPE = 4,
-    VT_ID = 6
+    VT_STATDATATYPE = 6,
+    VT_ID = 8
   };
   Class cType() const {
     return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
+  }
+  Class StatDataType() const {
+    return static_cast<Class>(GetField<int32_t>(VT_STATDATATYPE, 0));
   }
   int32_t ID() const {
     return GetField<int32_t>(VT_ID, 0);
@@ -726,6 +828,7 @@ struct SendMeStat FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_CTYPE) &&
+           VerifyField<int32_t>(verifier, VT_STATDATATYPE) &&
            VerifyField<int32_t>(verifier, VT_ID) &&
            verifier.EndTable();
   }
@@ -739,6 +842,9 @@ struct SendMeStatBuilder {
   flatbuffers::uoffset_t start_;
   void add_cType(Class cType) {
     fbb_.AddElement<int32_t>(SendMeStat::VT_CTYPE, static_cast<int32_t>(cType), 0);
+  }
+  void add_StatDataType(Class StatDataType) {
+    fbb_.AddElement<int32_t>(SendMeStat::VT_STATDATATYPE, static_cast<int32_t>(StatDataType), 0);
   }
   void add_ID(int32_t ID) {
     fbb_.AddElement<int32_t>(SendMeStat::VT_ID, ID, 0);
@@ -758,9 +864,11 @@ struct SendMeStatBuilder {
 inline flatbuffers::Offset<SendMeStat> CreateSendMeStat(
     flatbuffers::FlatBufferBuilder &_fbb,
     Class cType = Class_Base,
+    Class StatDataType = Class_Base,
     int32_t ID = 0) {
   SendMeStatBuilder builder_(_fbb);
   builder_.add_ID(ID);
+  builder_.add_StatDataType(StatDataType);
   builder_.add_cType(cType);
   return builder_.Finish();
 }
@@ -978,6 +1086,7 @@ inline void Monster::UnPackTo(MonsterT *_o, const flatbuffers::resolver_function
   { auto _e = ID(); _o->ID = _e; };
   { auto _e = TargetID(); _o->TargetID = _e; };
   { auto _e = TargetPos(); if (_e) _o->TargetPos = std::unique_ptr<Vec3>(new Vec3(*_e)); };
+  { auto _e = Ani(); _o->Ani = _e; };
 }
 
 inline flatbuffers::Offset<Monster> Monster::Pack(flatbuffers::FlatBufferBuilder &_fbb, const MonsterT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
@@ -993,13 +1102,47 @@ inline flatbuffers::Offset<Monster> CreateMonster(flatbuffers::FlatBufferBuilder
   auto _ID = _o->ID;
   auto _TargetID = _o->TargetID;
   auto _TargetPos = _o->TargetPos ? _o->TargetPos.get() : 0;
+  auto _Ani = _o->Ani;
   return CreateMonster(
       _fbb,
       _cType,
       _pos,
       _ID,
       _TargetID,
-      _TargetPos);
+      _TargetPos,
+      _Ani);
+}
+
+inline MonsterStatT *MonsterStat::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
+  auto _o = new MonsterStatT();
+  UnPackTo(_o, _resolver);
+  return _o;
+}
+
+inline void MonsterStat::UnPackTo(MonsterStatT *_o, const flatbuffers::resolver_function_t *_resolver) const {
+  (void)_o;
+  (void)_resolver;
+  { auto _e = cType(); _o->cType = _e; };
+  { auto _e = HP(); _o->HP = _e; };
+  { auto _e = ID(); _o->ID = _e; };
+}
+
+inline flatbuffers::Offset<MonsterStat> MonsterStat::Pack(flatbuffers::FlatBufferBuilder &_fbb, const MonsterStatT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
+  return CreateMonsterStat(_fbb, _o, _rehasher);
+}
+
+inline flatbuffers::Offset<MonsterStat> CreateMonsterStat(flatbuffers::FlatBufferBuilder &_fbb, const MonsterStatT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
+  (void)_rehasher;
+  (void)_o;
+  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const MonsterStatT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
+  auto _cType = _o->cType;
+  auto _HP = _o->HP;
+  auto _ID = _o->ID;
+  return CreateMonsterStat(
+      _fbb,
+      _cType,
+      _HP,
+      _ID);
 }
 
 inline PlayerStatT *PlayerStat::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
@@ -1056,6 +1199,7 @@ inline void SendMeStat::UnPackTo(SendMeStatT *_o, const flatbuffers::resolver_fu
   (void)_o;
   (void)_resolver;
   { auto _e = cType(); _o->cType = _e; };
+  { auto _e = StatDataType(); _o->StatDataType = _e; };
   { auto _e = ID(); _o->ID = _e; };
 }
 
@@ -1068,10 +1212,12 @@ inline flatbuffers::Offset<SendMeStat> CreateSendMeStat(flatbuffers::FlatBufferB
   (void)_o;
   struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const SendMeStatT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
   auto _cType = _o->cType;
+  auto _StatDataType = _o->StatDataType;
   auto _ID = _o->ID;
   return CreateSendMeStat(
       _fbb,
       _cType,
+      _StatDataType,
       _ID);
 }
 

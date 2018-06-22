@@ -13,6 +13,8 @@ oMonsterManager::oMonsterManager()
 void oMonsterManager::Start()
 {
 	Getinstance();
+
+	Monsters[0];
 }
 
 oMonsterManager* oMonsterManager::Getinstance()
@@ -25,16 +27,19 @@ oMonsterManager* oMonsterManager::Getinstance()
 
 void oMonsterManager::process()
 {
-	mon.UpdatePosition();
+	Monsters[0].UpdatePosition();
 	flatbuffers::FlatBufferBuilder fbb;
 	WriteManager::write(
-		CreateMonster(fbb, 
-			Class::Class_Monster, 
-			new Vec3(mon.CurrnetPos.x, 0, mon.CurrnetPos.y),
-			mon.ID,
-			mon.targetID,
-			new Vec3(mon.TargetPos.x, 0, mon.TargetPos.y)),
+		CreateMonster(fbb,
+			Class::Class_Monster,
+			new Vec3(Monsters[0].CurrnetPos.x, 0, Monsters[0].CurrnetPos.y),
+			Monsters[0].ID,
+			Monsters[0].targetID,
+			new Vec3(Monsters[0].TargetPos.x, 0, Monsters[0].TargetPos.y),
+			Monsters[0].AniNumber
+			),
 		fbb);
+
 	TimeManager::GetInstance()->TimeReset(this);
 }
 
@@ -42,5 +47,6 @@ oMonsterManager::~oMonsterManager()
 {
 }
 
-oMonsterManager* oMonsterManager::instance = nullptr;
+oMonsterManager* oMonsterManager::instance = nullptr; 
+std::map<int, oMonster> oMonsterManager::Monsters;
 double oMonsterManager::SendRate = 0.1f;

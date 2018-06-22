@@ -31,9 +31,10 @@
 #include "NetworkSpeedTest.h"
 #include "Ping.h"
 #include "PlayerStat.h"
-#include "PlayerStatSendManager.h"
+#include "StatSendManager.h"
 #include "Monster.h"
 #include "oMonsterManager.h"
+#include "oMonsterStatManager.h"
 
 
 using asio::ip::tcp;
@@ -161,7 +162,8 @@ void server::ServerStart()
 	PlayerMoveManager = new PlayerMove;
 	st = new NetworkSpeedTest;
 	playerStat = new cPlayerStat;
-	playerStatSend = new PlayerStatSendManager;
+	playerStatSend = new StatSendManager;
+	MonStat = new oMonsterStatManager;
 
 	oMonsterManager::Start();
 }

@@ -86,6 +86,8 @@ private:
 	NetworkSpeedTest * st;
 	cPlayerStat * playerStat;
 	NetEvent * playerStatSend;
+	oMonsterStatManager * MonStat;
+
 
 	void ServerStart();
 

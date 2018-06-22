@@ -18,11 +18,22 @@ oMonster::oMonster()
 	MaxRange = 2.0f;
 
 	target = nullptr;
+
+	Stat = new MonsterStatT;
+	Stat->cType = Class::Class_MonsterStat;
+	
 	ID = MonsterId++;
+	Stat->ID = ID;
+	Stat->HP = 100;
 }
 
 oMonster::oMonster(int _MonsterCodeID, double _moveTime, int _RandRange, double _Range, double _MaxRange)
-	: MonsterCodeID(_MonsterCodeID), moveTime(_moveTime) , RandRange(_RandRange), Range(_Range), MaxRange(_MaxRange){}
+	: MonsterCodeID(_MonsterCodeID), moveTime(_moveTime) , RandRange(_RandRange), Range(_Range), MaxRange(_MaxRange)
+{
+
+	Stat = new MonsterStatT;
+	Stat->cType = Class::Class_MonsterStat;
+}
 
 oMonster::~oMonster()
 {
@@ -66,10 +77,12 @@ void oMonster::UpdatePosition()
 		S = GetDistance(TargetPos, CurrnetPos);
 		m_time += oMonsterManager::SendRate;
 	}
-
-	if (MaxRange < S) {						
+	
+	AniNumber = 0.0f;
+	if (MaxRange < S) {
 		CurrnetPos.x += ((TargetPos.x - CurrnetPos.x) / S);
 		CurrnetPos.y += ((TargetPos.y - CurrnetPos.y) / S);
+		AniNumber = 0.1f;
 	}
 
 	
@@ -79,4 +92,4 @@ void oMonster::UpdatePosition()
 	}
 }
 
-int oMonster::MonsterId;
+int oMonster::MonsterId=0;

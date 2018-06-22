@@ -11,6 +11,7 @@ class NetworkSpeedTest;
 class cPlayerStat;
 class NetEvent;
 class oMonster;
+class oMonsterStatManager;
 
 
 class oPlayer : public EventSystem
