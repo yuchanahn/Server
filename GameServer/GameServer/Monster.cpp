@@ -80,11 +80,11 @@ void oMonster::UpdatePosition()
 	
 	AniNumber = 0.0f;
 	if (MaxRange < S) {
-		CurrnetPos.x += ((TargetPos.x - CurrnetPos.x) / S);
-		CurrnetPos.y += ((TargetPos.y - CurrnetPos.y) / S);
+		CurrnetPos.x += ((TargetPos.x - CurrnetPos.x) / S)*0.3f;
+		CurrnetPos.y += ((TargetPos.y - CurrnetPos.y) / S)*0.3f;
 		AniNumber = 0.1f;
 	}
-
+	prevPos = CurrnetPos;
 	
 	targetID = -1;
 	if (target != nullptr) {

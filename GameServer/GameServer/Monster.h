@@ -28,7 +28,8 @@ public:
 	float AniNumber = 0.1f;
 
 	double S;
-	
+
+	CPoint<double> prevPos;
 	CPoint<double> CurrnetPos;
 	CPoint<double> TargetPos;
 	// ================== //
