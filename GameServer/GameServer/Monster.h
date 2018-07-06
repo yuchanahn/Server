@@ -1,16 +1,19 @@
 #pragma once
 #include "CPoint.h"
+#include <string>
 
 class oPlayer;
 
 struct MonsterStatT;
-
+struct CreateMonsterData;
 
 
 
 class oMonster
 {
-	static int MonsterId;
+	static int MonsterId; 
+	
+	double fRand(double fMin, double fMax);
 public:
 	// == server data == //
 	MonsterStatT * Stat;
@@ -44,4 +47,5 @@ public:
 
 
 	void UpdatePosition();
+	void Set(std::string Name, int sX,int sY, int Hp, int Exp);
 };

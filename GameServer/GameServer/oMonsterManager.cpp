@@ -2,6 +2,7 @@
 #include "Base_generated.h"
 #include "WriteManager.h"
 #include "TimeManager.h"
+#include "MysqlManager.h"
 
 oMonsterManager::oMonsterManager()
 {
@@ -13,8 +14,10 @@ oMonsterManager::oMonsterManager()
 void oMonsterManager::Start()
 {
 	Getinstance();
-
-	Monsters[0];
+	MysqlManager m;
+	auto monData = *m.GetMonsterInfo().begin();
+	
+	Monsters[0].Set(monData->Name, monData->startX, monData->startY, monData->Hp, monData->Exp);
 }
 
 oMonsterManager* oMonsterManager::Getinstance()

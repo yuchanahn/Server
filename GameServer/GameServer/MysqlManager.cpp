@@ -5,6 +5,7 @@
 #include "mysqlpool.h"
 #include "./LoginData_generated.h"
 #include "./EventManager.h"
+#include "oMonsterManager.h"
 
 using namespace std;
 
@@ -53,6 +54,32 @@ bool MysqlManager::CreateUserData(const LoginData * data)
 	return false;
 }
 
+std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
+{
+	std::list<CreateMonsterData*> Monsters;
+
+	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
+	mysql->setParameter("10.140.0.3", "anyc123", "123", "Monster", 3306, NULL, 0, 2);
+	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from MonsterInfo");
+
+	for (size_t i = 0; i < m["StartX"].size(); i++) {
+		/*printf("StartX - %s ,%d\n", m["StartX"][i], GetInt(m["StartX"][i]));
+		printf("StartY - %s ,%d\n", m["StartY"][i], GetInt(m["StartY"][i]));
+		printf("Exp - %s ,%d\n", m["Exp"][i], GetInt(m["Exp"][i]));
+		printf("hp - %s ,%d\n", m["HP"][i], GetInt(m["HP"][i]));*/
+		Monsters.push_back(new CreateMonsterData(
+			m["Name"][i], 
+			GetInt(m["StartX"][i]),
+			GetInt(m["StartY"][i]), 
+			GetInt(m["HP"][i]), 
+			GetInt(m["Exp"][i])
+		));
+	}
+
+
+	return Monsters;
+}
+
 eLogin MysqlManager::GetLoginData(const LoginData * data)
 {
 	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
@@ -69,4 +96,9 @@ eLogin MysqlManager::GetLoginData(const LoginData * data)
 		}
 	}
 	return eLogin::idNone;
+}
+
+int MysqlManager::GetInt(const char * data)
+{
+	return atoi(data);
 }
