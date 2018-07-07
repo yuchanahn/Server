@@ -5,6 +5,7 @@
 #include<mysql.h>
 #include<queue>
 #include<map>
+#include<list>
 #include<vector>
 #include<utility>
 #include<string>

@@ -114,6 +114,8 @@ void MysqlPool::close(MYSQL* conn) {
 std::map<const std::string,std::vector<const char*> >  MysqlPool::executeSql(const char* sql) {
     MYSQL* conn = getOneConnect();
     std::map<const std::string,std::vector<const char*> > results;
+	std::list<std::vector<const char*>*> r_list;
+
     if (conn) {
         if (mysql_query(conn,sql) == 0) {
             MYSQL_RES *res = mysql_store_result(conn);
@@ -121,13 +123,13 @@ std::map<const std::string,std::vector<const char*> >  MysqlPool::executeSql(con
                 MYSQL_FIELD *field;
                 while ((field = mysql_fetch_field(res))) {
                     results.insert(make_pair(field->name,std::vector<const char*>()));
+					r_list.push_back(&results[field->name]);
                 }
-                MYSQL_ROW row;
+				MYSQL_ROW row;
                 while ((row = mysql_fetch_row(res))) {
                     unsigned int i = 0;
-                    for (std::map<const std::string,std::vector<const char*> >::iterator it = results.begin();
-                            it != results.end(); ++it) {
-                        (it->second).push_back(row[i++]);
+					for (auto it = r_list.begin(); it != r_list.end(); ++it) {
+						(*it)->push_back(row[i++]);
                     }
                 }
                 mysql_free_result(res);

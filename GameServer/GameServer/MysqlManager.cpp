@@ -60,13 +60,9 @@ std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
 
 	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
 	mysql->setParameter("10.140.0.3", "anyc123", "123", "Monster", 3306, NULL, 0, 2);
-	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from MonsterInfo");
+	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("SELECT * FROM  MonsterInfo");
 
 	for (size_t i = 0; i < m["StartX"].size(); i++) {
-		/*printf("StartX - %s ,%d\n", m["StartX"][i], GetInt(m["StartX"][i]));
-		printf("StartY - %s ,%d\n", m["StartY"][i], GetInt(m["StartY"][i]));
-		printf("Exp - %s ,%d\n", m["Exp"][i], GetInt(m["Exp"][i]));
-		printf("hp - %s ,%d\n", m["HP"][i], GetInt(m["HP"][i]));*/
 		Monsters.push_back(new CreateMonsterData(
 			m["Name"][i], 
 			GetInt(m["StartX"][i]),

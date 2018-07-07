@@ -4,5 +4,9 @@
   Starting remote build
   Compiling sources:
   MysqlManager.cpp
+  mysqlpool.cpp
+C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.cpp(71,27): warning : conversion to ‘unsigned int’ from ‘std::queue<st_mysql*>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.cpp(71,27): warning :      return mysqlpool.size();
+C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.cpp(71,27): warning :                            ^
   Linking objects
-  GameServer.vcxproj -> C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\bin/GameServer.out
+  GameServer.vcxproj -> C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\bin/GameServer.out
