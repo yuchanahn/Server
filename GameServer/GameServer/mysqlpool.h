@@ -16,6 +16,9 @@ class MysqlPool {
   public:
     ~MysqlPool();
     std::map<const std::string,std::vector<const char* > > executeSql(const char* sql);
+	char * executeSql_str(const char* sql);
+
+
     static MysqlPool* getMysqlPoolObject();
     void setParameter( const char*   _mysqlhost,
                        const char*   _mysqluser,

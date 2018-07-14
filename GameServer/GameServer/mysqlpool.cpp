@@ -147,6 +147,40 @@ std::map<const std::string,std::vector<const char*> >  MysqlPool::executeSql(con
     return results;
 }
 
+char * MysqlPool::executeSql_str(const char * sql)
+{
+	MYSQL* conn = getOneConnect();
+	std::map<const std::string, std::vector<const char*> > results;
+	std::list<std::vector<const char*>*> r_list;
+
+	if (conn) {
+		if (mysql_query(conn, sql) == 0) {
+			MYSQL_RES *res = mysql_store_result(conn);
+			if (res) {
+				MYSQL_ROW row = mysql_fetch_row(res);
+				return row[0];
+			}
+			else {
+				if (mysql_field_count(conn) != 0)
+					std::cerr << mysql_error(conn) << std::endl;
+			}
+		}
+		else {
+			std::cerr << mysql_error(conn) << std::endl;
+		}
+		close(conn);
+	}
+	else {
+		std::cerr << mysql_error(conn) << std::endl;
+	}
+	return nullptr;
+}
+
+
+
+
+
+
 MysqlPool::~MysqlPool() {
     while (poolSize() != 0) {
         mysql_close(poolFront());

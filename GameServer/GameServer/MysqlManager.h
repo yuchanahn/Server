@@ -5,7 +5,9 @@
 #include <list>
 
 struct CreateMonsterData;
-struct LoginData;
+struct LoginT;
+
+class MysqlPool;
 
 enum class eLogin
 {
@@ -15,19 +17,24 @@ enum class eLogin
 class MysqlManager
 {
 
+	MysqlPool * mysql;
 
 
-	eLogin GetLoginData(const LoginData * data);
+	eLogin GetLoginData(LoginT * data);
 	int GetInt(const char * );
-
 
 public:
 	MysqlManager();
 	~MysqlManager();
 
 	void MysqlTest();
-	bool UserLogin(const LoginData * data);
-	bool CreateUserData(const LoginData * data);
+	bool UserLogin(LoginT * data);
+	bool CreateUserData(LoginT * data);
+	void CreateID(LoginT * data);
+
+
+	int GetPlayerID_KEY(LoginT * data);
+
 
 	std::list<CreateMonsterData*> GetMonsterInfo();
 };

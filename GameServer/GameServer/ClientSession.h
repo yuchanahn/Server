@@ -87,7 +87,7 @@ private:
 	cPlayerStat * playerStat;
 	NetEvent * playerStatSend;
 	oMonsterStatManager * MonStat;
-
+	LoginManager * login;
 
 	void ServerStart();
 

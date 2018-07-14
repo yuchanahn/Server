@@ -134,7 +134,6 @@
     <ClInclude Include="CPoint.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="EventSystem.h" />
-    <ClInclude Include="LoginData_generated.h" />
     <ClInclude Include="Loginmanager.h" />
     <ClInclude Include="Logmanager.h" />
     <ClInclude Include="Monster.h" />

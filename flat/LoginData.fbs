@@ -1,7 +1,0 @@
-table LoginData{
-isSignin:bool;
-id:string;
-pass:string;
-isSuccess:bool;
-}
-root_type LoginData;

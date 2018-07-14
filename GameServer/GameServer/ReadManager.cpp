@@ -30,6 +30,9 @@ void ReadManager::Read(char data_[1024], oPlayer * id)
 		printf("not real data!\nfor : %d\n", id->id);
 		return;
 	}
+	else {
+		//printf("data Enum : %d\n", data->cType());
+	}
 
 
 	GetNEvents()[data->cType()]->EventProsess(id, (Base*)data);

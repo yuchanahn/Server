@@ -8,6 +8,9 @@
 
 struct Vec3;
 
+struct Login;
+struct LoginT;
+
 struct id;
 struct idT;
 
@@ -45,11 +48,12 @@ enum Class {
   Class_SendMeStat = 6,
   Class_Monster = 7,
   Class_MonsterStat = 8,
+  Class_LogIn = 9,
   Class_MIN = Class_Base,
-  Class_MAX = Class_MonsterStat
+  Class_MAX = Class_LogIn
 };
 
-inline const Class (&EnumValuesClass())[9] {
+inline const Class (&EnumValuesClass())[10] {
   static const Class values[] = {
     Class_Base,
     Class_Player,
@@ -59,7 +63,8 @@ inline const Class (&EnumValuesClass())[9] {
     Class_PlayerStat,
     Class_SendMeStat,
     Class_Monster,
-    Class_MonsterStat
+    Class_MonsterStat,
+    Class_LogIn
   };
   return values;
 }
@@ -75,6 +80,7 @@ inline const char * const *EnumNamesClass() {
     "SendMeStat",
     "Monster",
     "MonsterStat",
+    "LogIn",
     nullptr
   };
   return names;
@@ -111,6 +117,124 @@ MANUALLY_ALIGNED_STRUCT(4) Vec3 FLATBUFFERS_FINAL_CLASS {
   }
 };
 STRUCT_END(Vec3, 12);
+
+struct LoginT : public flatbuffers::NativeTable {
+  typedef Login TableType;
+  Class cType;
+  bool isSignin;
+  std::string id;
+  std::string pass;
+  bool isSuccess;
+  LoginT()
+      : cType(Class_Base),
+        isSignin(false),
+        isSuccess(false) {
+  }
+};
+
+struct Login FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  typedef LoginT NativeTableType;
+  enum {
+    VT_CTYPE = 4,
+    VT_ISSIGNIN = 6,
+    VT_ID = 8,
+    VT_PASS = 10,
+    VT_ISSUCCESS = 12
+  };
+  Class cType() const {
+    return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
+  }
+  bool isSignin() const {
+    return GetField<uint8_t>(VT_ISSIGNIN, 0) != 0;
+  }
+  const flatbuffers::String *id() const {
+    return GetPointer<const flatbuffers::String *>(VT_ID);
+  }
+  const flatbuffers::String *pass() const {
+    return GetPointer<const flatbuffers::String *>(VT_PASS);
+  }
+  bool isSuccess() const {
+    return GetField<uint8_t>(VT_ISSUCCESS, 0) != 0;
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<int32_t>(verifier, VT_CTYPE) &&
+           VerifyField<uint8_t>(verifier, VT_ISSIGNIN) &&
+           VerifyOffset(verifier, VT_ID) &&
+           verifier.Verify(id()) &&
+           VerifyOffset(verifier, VT_PASS) &&
+           verifier.Verify(pass()) &&
+           VerifyField<uint8_t>(verifier, VT_ISSUCCESS) &&
+           verifier.EndTable();
+  }
+  LoginT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+  void UnPackTo(LoginT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+  static flatbuffers::Offset<Login> Pack(flatbuffers::FlatBufferBuilder &_fbb, const LoginT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+};
+
+struct LoginBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_cType(Class cType) {
+    fbb_.AddElement<int32_t>(Login::VT_CTYPE, static_cast<int32_t>(cType), 0);
+  }
+  void add_isSignin(bool isSignin) {
+    fbb_.AddElement<uint8_t>(Login::VT_ISSIGNIN, static_cast<uint8_t>(isSignin), 0);
+  }
+  void add_id(flatbuffers::Offset<flatbuffers::String> id) {
+    fbb_.AddOffset(Login::VT_ID, id);
+  }
+  void add_pass(flatbuffers::Offset<flatbuffers::String> pass) {
+    fbb_.AddOffset(Login::VT_PASS, pass);
+  }
+  void add_isSuccess(bool isSuccess) {
+    fbb_.AddElement<uint8_t>(Login::VT_ISSUCCESS, static_cast<uint8_t>(isSuccess), 0);
+  }
+  explicit LoginBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  LoginBuilder &operator=(const LoginBuilder &);
+  flatbuffers::Offset<Login> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<Login>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Login> CreateLogin(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    Class cType = Class_Base,
+    bool isSignin = false,
+    flatbuffers::Offset<flatbuffers::String> id = 0,
+    flatbuffers::Offset<flatbuffers::String> pass = 0,
+    bool isSuccess = false) {
+  LoginBuilder builder_(_fbb);
+  builder_.add_pass(pass);
+  builder_.add_id(id);
+  builder_.add_cType(cType);
+  builder_.add_isSuccess(isSuccess);
+  builder_.add_isSignin(isSignin);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Login> CreateLoginDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    Class cType = Class_Base,
+    bool isSignin = false,
+    const char *id = nullptr,
+    const char *pass = nullptr,
+    bool isSuccess = false) {
+  return CreateLogin(
+      _fbb,
+      cType,
+      isSignin,
+      id ? _fbb.CreateString(id) : 0,
+      pass ? _fbb.CreateString(pass) : 0,
+      isSuccess);
+}
+
+flatbuffers::Offset<Login> CreateLogin(flatbuffers::FlatBufferBuilder &_fbb, const LoginT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 
 struct idT : public flatbuffers::NativeTable {
   typedef id TableType;
@@ -928,6 +1052,44 @@ inline flatbuffers::Offset<Base> CreateBase(
 }
 
 flatbuffers::Offset<Base> CreateBase(flatbuffers::FlatBufferBuilder &_fbb, const BaseT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+
+inline LoginT *Login::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
+  auto _o = new LoginT();
+  UnPackTo(_o, _resolver);
+  return _o;
+}
+
+inline void Login::UnPackTo(LoginT *_o, const flatbuffers::resolver_function_t *_resolver) const {
+  (void)_o;
+  (void)_resolver;
+  { auto _e = cType(); _o->cType = _e; };
+  { auto _e = isSignin(); _o->isSignin = _e; };
+  { auto _e = id(); if (_e) _o->id = _e->str(); };
+  { auto _e = pass(); if (_e) _o->pass = _e->str(); };
+  { auto _e = isSuccess(); _o->isSuccess = _e; };
+}
+
+inline flatbuffers::Offset<Login> Login::Pack(flatbuffers::FlatBufferBuilder &_fbb, const LoginT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
+  return CreateLogin(_fbb, _o, _rehasher);
+}
+
+inline flatbuffers::Offset<Login> CreateLogin(flatbuffers::FlatBufferBuilder &_fbb, const LoginT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
+  (void)_rehasher;
+  (void)_o;
+  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const LoginT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
+  auto _cType = _o->cType;
+  auto _isSignin = _o->isSignin;
+  auto _id = _o->id.empty() ? 0 : _fbb.CreateString(_o->id);
+  auto _pass = _o->pass.empty() ? 0 : _fbb.CreateString(_o->pass);
+  auto _isSuccess = _o->isSuccess;
+  return CreateLogin(
+      _fbb,
+      _cType,
+      _isSignin,
+      _id,
+      _pass,
+      _isSuccess);
+}
 
 inline idT *id::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
   auto _o = new idT();

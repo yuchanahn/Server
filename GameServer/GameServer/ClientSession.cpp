@@ -19,7 +19,6 @@
 #include "./Logmanager.h"
 #include "./MysqlManager.h"
 #include "./RedisManager.h"
-#include "./LoginData_generated.h"
 #include "./EventManager.h"
 #include "./TimeManager.h"
 #include "./Loginmanager.h"
@@ -67,7 +66,7 @@ void session::start()
 
 void session::playerLogin()
 {
-	printf("Success Login\n");
+	//printf("Success Login\n");
 }
 
 void session::process()
@@ -103,22 +102,19 @@ void session::do_read()
 
 			//TimeManager::GetInstance()->TimeReset(this);
 
-			if ( /*!*/isLogin) {		//아직 로그인 안됬을때.
-				LoginManager::loginTo(data_);
-			}
-			else {				//로그인후 처리.	
-				cpyData = new char[length];
+							//로그인후 처리.	
+			cpyData = new char[length];
 
-				memset(cpyData, 0, length);
-				memcpy(cpyData, data_, length);
+			memset(cpyData, 0, length);
+			memcpy(cpyData, data_, length);
 
-				strand_.get_io_service().post(strand_.wrap([this, self] {
-					char * currentData = cpyData;
-					ReadManager::Read(currentData, this);
-					delete currentData;
-				}));
-				memset(data_, 0, length);
-			}
+			strand_.get_io_service().post(strand_.wrap([this, self] {
+				char * currentData = cpyData;
+				ReadManager::Read(currentData, this);
+				delete currentData;
+			}));
+			memset(data_, 0, length);
+
 			do_read();
 			//do_read();
 		}
@@ -164,6 +160,8 @@ void server::ServerStart()
 	playerStat = new cPlayerStat;
 	playerStatSend = new StatSendManager;
 	MonStat = new oMonsterStatManager;
+	login = new LoginManager;
+
 
 	oMonsterManager::Start();
 }

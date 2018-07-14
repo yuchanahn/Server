@@ -12,6 +12,7 @@ class cPlayerStat;
 class NetEvent;
 class oMonster;
 class oMonsterStatManager;
+class LoginManager;
 
 
 class oPlayer : public EventSystem

@@ -7,13 +7,23 @@ ping,
 PlayerStat,
 SendMeStat,
 Monster,
-MonsterStat
+MonsterStat,
+LogIn
 }
+
 
 struct Vec3 {
   x:float;
   y:float;
   z:float;
+}
+
+table Login{
+cType:Class;
+isSignin:bool;
+id:string;
+pass:string;
+isSuccess:bool;
 }
 
 table id{

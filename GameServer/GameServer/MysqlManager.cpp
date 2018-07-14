@@ -3,8 +3,8 @@
 
 
 #include "mysqlpool.h"
-#include "./LoginData_generated.h"
 #include "./EventManager.h"
+#include "Base_generated.h"
 #include "oMonsterManager.h"
 
 using namespace std;
@@ -13,6 +13,8 @@ using namespace std;
 
 MysqlManager::MysqlManager()
 {
+	mysql = MysqlPool::getMysqlPoolObject();
+	mysql->setParameter("10.140.0.3", "anyc123", "123", "Main", 3306, NULL, 0, 2);
 }
 
 
@@ -23,8 +25,6 @@ MysqlManager::~MysqlManager()
 
 void MysqlManager::MysqlTest()
 {
-	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
-	mysql->setParameter("10.140.0.3", "anyc123", "123", "Login", 3306, NULL, 0, 2);
 	std::map<const std::string, std::vector<const char*> > m = mysql->executeSql("select * from user");
 	for (std::map<const std::string, std::vector<const char*> >::iterator it = m.begin(); it != m.end(); ++it) {
 		std::cout << it->first << std::endl;
@@ -38,7 +38,7 @@ void MysqlManager::MysqlTest()
 	delete mysql;
 }
 
-bool MysqlManager::UserLogin(const LoginData * data)
+bool MysqlManager::UserLogin(LoginT * data)
 {
 	if (GetLoginData(data) == eLogin::passSame) {
 		return true;
@@ -46,7 +46,7 @@ bool MysqlManager::UserLogin(const LoginData * data)
 	return false;
 }
 
-bool MysqlManager::CreateUserData(const LoginData * data)
+bool MysqlManager::CreateUserData(LoginT * data)
 {
 	if (GetLoginData(data) == eLogin::idNone) {
 		return true;
@@ -58,8 +58,6 @@ std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
 {
 	std::list<CreateMonsterData*> Monsters;
 
-	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
-	mysql->setParameter("10.140.0.3", "anyc123", "123", "Monster", 3306, NULL, 0, 2);
 	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("SELECT * FROM  MonsterInfo");
 
 	for (size_t i = 0; i < m["StartX"].size(); i++) {
@@ -72,19 +70,38 @@ std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
 		));
 	}
 
-
 	return Monsters;
 }
 
-eLogin MysqlManager::GetLoginData(const LoginData * data)
+void MysqlManager::CreateID(LoginT * data)
 {
-	MysqlPool *mysql = MysqlPool::getMysqlPoolObject();
-	mysql->setParameter("10.140.0.3", "anyc123", "123", "Login", 3306, NULL, 0, 2);
-	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from user");
+	char * str; 
+	sprintf(str, "INSERT INTO LoginData (LoginData.id,LoginData.pass) VALUES('%s', '%s');", data->id.c_str(), data->pass.c_str());
+	mysql->executeSql(str);
+	
+	printf("Create ID Success.\n");
+}
+
+int MysqlManager::GetPlayerID_KEY(LoginT * data)
+{
+	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from LoginData");
 
 	for (size_t i = 0; i < m["id"].size(); i++) {
-		if (!strncmp(data->id()->c_str(), m["id"][i], data->id()->Length())) {
-			if (!strncmp(data->pass()->c_str(), m["pass"][i], data->pass()->Length())) {
+		if (!strncmp(data->id.c_str(), m["id"][i], data->id.length())) {
+			return stoi(m["key"][i]);
+		}
+	}
+}
+
+
+eLogin MysqlManager::GetLoginData(LoginT * data)
+{
+	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from LoginData");
+
+	//select count(*) from LoginData Where LoginData.id = '2323154';
+	for (size_t i = 0; i < m["id"].size(); i++) {
+		if (!strncmp(data->id.c_str(), m["id"][i], data->id.length())) {
+			if (!strncmp(data->pass.c_str(), m["pass"][i], data->pass.length())) {
 				EventManager::GetInstance()->OnEvent(Event::PlayerSignIn);
 				return eLogin::passSame;
 			}

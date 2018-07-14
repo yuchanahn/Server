@@ -1,10 +1,17 @@
 #pragma once
-class LoginManager
+#include "NetEvent.h"
+
+struct LoginT;
+
+class LoginManager : public NetEvent
 {
+	LoginT * LoginData;
+
+	
 public:
 	LoginManager();
 	~LoginManager();
 
-	static void loginTo(char data_[1024]);
+	virtual void EventProsess(oPlayer * d, Base * d2);
 };
 
