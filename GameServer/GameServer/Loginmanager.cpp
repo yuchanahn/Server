@@ -30,7 +30,7 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 		if (m.UserLogin(LoginData)) {
 			auto id = m.GetPlayerID_KEY(LoginData);
 
-			printf("isSuccess. id : %d\n", id);
+			printf("isSuccess.\n ------ id : %d\n------------\n", id);
 			LoginData->isSignin = true;
 			LoginData->id = std::to_string(id);
 
@@ -62,6 +62,8 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 			m.CreateID(LoginData);
 
 			auto id = m.GetPlayerID_KEY(LoginData);
+
+			printf("i : %d\n\n",id);
 
 			LoginData->isSignin = true;
 			LoginData->id = id;

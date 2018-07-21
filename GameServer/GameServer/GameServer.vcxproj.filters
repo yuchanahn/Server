@@ -64,6 +64,7 @@
       <Filter>Monster</Filter>
     </ClCompile>
     <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="UserItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -137,6 +138,7 @@
       <Filter>Monster</Filter>
     </ClInclude>
     <ClInclude Include="PlayerComponent.h" />
+    <ClInclude Include="UserItem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DB">
@@ -183,6 +185,9 @@
     </Filter>
     <Filter Include="SendRecv">
       <UniqueIdentifier>{b5ec7fd1-e8ae-4211-a76e-ae9d2dcc5200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{66b72394-7047-4d85-9a8c-307a39232d62}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -23,25 +23,13 @@ MysqlManager::~MysqlManager()
 
 }
 
-void MysqlManager::MysqlTest()
-{
-	std::map<const std::string, std::vector<const char*> > m = mysql->executeSql("select * from user");
-	for (std::map<const std::string, std::vector<const char*> >::iterator it = m.begin(); it != m.end(); ++it) {
-		std::cout << it->first << std::endl;
-		const std::string field = it->first;
-		for (size_t i = 0; i < m[field].size(); i++) {
-			std::cout << "[" << m[field][i] << "]" << std::endl;
-		}
-	}
-
-	//mysql->executeSql("INSERT INTO user VALUES('anyc124', '1223');");
-	delete mysql;
-}
 
 bool MysqlManager::UserLogin(LoginT * data)
 {
+	printf("---UserLogin----\n");
 	if (GetLoginData(data) == eLogin::passSame) {
 		return true;
+		printf("UserLogin end \n");
 	}
 	return false;
 }
@@ -65,12 +53,13 @@ std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
 	for (size_t i = 0; i < m["StartX"].size(); i++) {
 		Monsters.push_back(new CreateMonsterData(
 			m["Name"][i], 
-			Getint(m["StartX"][i]),
-			Getint(m["StartY"][i]),
-			Getint(m["HP"][i]),
-			Getint(m["Exp"][i])
+			atoi(m["StartX"][i]),
+			atoi(m["StartY"][i]),
+			atoi(m["HP"][i]),
+			atoi(m["Exp"][i])
 		));
 	}
+
 
 	return Monsters;
 }
@@ -96,7 +85,6 @@ void MysqlManager::SetPlayerPos(PlayerT * player)
 	char str[500];
 	auto m = mysql->executeSql("select * from PlayerInfo");
 
-	int key = GetKey(player->ID);
 
 	auto pos = new Vec3(player->pos->x(), player->pos->y(), player->pos->z());
 
@@ -109,11 +97,10 @@ PlayerStatT MysqlManager::GetPlayerStat(int id)
 	auto m = mysql->executeSql("select * from PlayerInfo");
 
 	PlayerStatT stat;
-	int key = GetKey(id);
 
 
-	stat.HP = stoi(m["Hp"][key]);
-	stat.HPLim = stoi(m["HpLim"][key]);
+	stat.HP = stoi(m["Hp"][id]);
+	stat.HPLim = stoi(m["HpLim"][id]);
 	
 
 	return stat;
@@ -121,56 +108,60 @@ PlayerStatT MysqlManager::GetPlayerStat(int id)
 
 Vec3 MysqlManager::GetPlayerPos(int id)
 {
-	int key = GetKey(id);
 	auto m = mysql->executeSql("select * from PlayerInfo");
 
-	Vec3 v3(stof(m["X"][key]), stof(m["Y"][key]), stof(m["Z"][key]));
+	Vec3 v3(stof(m["X"][id]), stof(m["Y"][id]), stof(m["Z"][id]));
 
 	return v3;
 }
 
+bool MysqlManager::isPlayerID(char * id)
+{
+	char str[500];
+	sprintf(str, "select count(*) from LoginData Where LoginData.id = '%s';", id);
+	return GetDataCount_LogIn(str);	
+	
+}
+
+bool MysqlManager::isPlayerPass(char * pass)
+{
+	char str[500];
+	sprintf(str, "select count(*) from LoginData Where LoginData.pass = '%s';", pass);
+	return GetDataCount_LogIn(str);
+}
+
+int MysqlManager::GetDataCount_LogIn(char * str)
+{
+	auto m2 = mysql->executeSql("select * from LoginData");
+	printf("data : %s\n-------------\n", m2["key"][0]);
+
+	auto m = mysql->executeSql_str(str);
+	return stoi(m);
+}
+
 int MysqlManager::GetPlayerID_KEY(LoginT * data)
 {
+	printf("---------- GetPlayerID_KEY start ---------\n");
+	char str[500];
+	//sprintf(str, "select LoginData.key from LoginData Where LoginData.id = '%s';", data->id.c_str());
 	auto m = mysql->executeSql("select * from LoginData");
+	printf("data : %s\n-------------\n", m["key"][0]);
 
-	for (size_t i = 0; i < m["id"].size(); i++) {
-		if (!strncmp(data->id.c_str(), m["id"][i], data->id.length())) {
-			return stoi(m["key"][i]);
-		}
-	}
+
+	return 0;
 }
 
 
-int MysqlManager::GetKey(int id)
-{
-	auto m = mysql->executeSql("select * from PlayerInfo");
-	int key;
-
-	for (size_t i = 0; i < m["UserKey"].size(); i++) {
-		if (stoi(m["UserKey"][i]) == id) { key = i; break; }
-	}
-	return key;
-}
-
-int MysqlManager::Getint(const char *str)
-{
-	return atoi(str);
-}
 
 eLogin MysqlManager::GetLoginData(LoginT * data)
 {
-	auto m = mysql->executeSql("select * from LoginData");
-
-	//select count(*) from LoginData Where LoginData.id = '2323154';
-	for (size_t i = 0; i < m["id"].size(); i++) {
-		if (!strncmp(data->id.c_str(), m["id"][i], data->id.length())) {
-			if (!strncmp(data->pass.c_str(), m["pass"][i], data->pass.length())) {
-				EventManager::GetInstance()->OnEvent(Event::PlayerSignIn);
-				return eLogin::passSame;
-			}
-			else return eLogin::idSame;
+	if (isPlayerID((char*)data->id.c_str())) {
+		if (isPlayerPass((char*)data->pass.c_str())) {
+			return eLogin::passSame;
 		}
+		return eLogin::idSame;
 	}
+
 	return eLogin::idNone;
 }
 

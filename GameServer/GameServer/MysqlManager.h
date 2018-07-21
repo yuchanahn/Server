@@ -24,13 +24,11 @@ class MysqlManager
 
 
 	eLogin GetLoginData(LoginT * data);
-	int Getint(const char * );
 
 public:
 	MysqlManager();
 	~MysqlManager();
 
-	void MysqlTest();
 	bool UserLogin(LoginT * data);
 	bool CreateUserData(LoginT * data);
 	void CreateID(LoginT * data);
@@ -44,8 +42,13 @@ public:
 	Vec3 GetPlayerPos(int id);
 
 
+	bool isPlayerID(char * id);
+	bool isPlayerPass(char * pass);
+
+	int GetDataCount_LogIn(char * str);
+
+
 	int GetPlayerID_KEY(LoginT * data);
-	int GetKey(int id);
 
 	std::list<CreateMonsterData*> GetMonsterInfo();
 };

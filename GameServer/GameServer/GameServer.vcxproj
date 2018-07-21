@@ -127,6 +127,7 @@
     <ClCompile Include="RedisManager.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TLS.cpp" />
+    <ClCompile Include="UserItem.cpp" />
     <ClCompile Include="WriteManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="RedisManager.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="TimeManagerEvent.h" />
+    <ClInclude Include="UserItem.h" />
     <ClInclude Include="WriteManager.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -19,6 +19,7 @@ class MysqlPool {
 	char * executeSql_str(const char* sql);
 
 
+
     static MysqlPool* getMysqlPoolObject();
     void setParameter( const char*   _mysqlhost,
                        const char*   _mysqluser,

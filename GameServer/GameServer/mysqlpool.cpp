@@ -147,6 +147,11 @@ std::map<const std::string,std::vector<const char*> >  MysqlPool::executeSql(con
     return results;
 }
 
+
+
+
+
+
 char * MysqlPool::executeSql_str(const char * sql)
 {
 	MYSQL* conn = getOneConnect();
@@ -175,10 +180,6 @@ char * MysqlPool::executeSql_str(const char * sql)
 	}
 	return nullptr;
 }
-
-
-
-
 
 
 MysqlPool::~MysqlPool() {
