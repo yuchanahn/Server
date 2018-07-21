@@ -54,19 +54,21 @@ bool MysqlManager::CreateUserData(LoginT * data)
 	return false;
 }
 
+
+
 std::list<CreateMonsterData*> MysqlManager::GetMonsterInfo()
 {
 	std::list<CreateMonsterData*> Monsters;
-
-	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("SELECT * FROM  MonsterInfo");
-
+	
+	auto m = mysql->executeSql("select * from MonsterInfo");
+	
 	for (size_t i = 0; i < m["StartX"].size(); i++) {
 		Monsters.push_back(new CreateMonsterData(
 			m["Name"][i], 
-			GetInt(m["StartX"][i]),
-			GetInt(m["StartY"][i]), 
-			GetInt(m["HP"][i]), 
-			GetInt(m["Exp"][i])
+			Getint(m["StartX"][i]),
+			Getint(m["StartY"][i]),
+			Getint(m["HP"][i]),
+			Getint(m["Exp"][i])
 		));
 	}
 
@@ -82,9 +84,54 @@ void MysqlManager::CreateID(LoginT * data)
 	printf("Create ID Success.\n");
 }
 
+void MysqlManager::SetPlayerStat(PlayerStatT * stat)
+{
+	char str[500];
+	sprintf(str, "UPDATE `Main`.`PlayerInfo` SET `Hp`='%d' WHERE  `UserKey`=%d LIMIT 1;", stat->HP, stat->ID);
+	mysql->executeSql(str);
+}
+
+void MysqlManager::SetPlayerPos(PlayerT * player)
+{
+	char str[500];
+	auto m = mysql->executeSql("select * from PlayerInfo");
+
+	int key = GetKey(player->ID);
+
+	auto pos = new Vec3(player->pos->x(), player->pos->y(), player->pos->z());
+
+	sprintf(str, "UPDATE `Main`.`PlayerInfo` SET `X`='%lf' ,`Y`='%lf' ,`Z`='%lf' WHERE  `UserKey`=%d LIMIT 1;", pos->x(), pos->y(), pos->z(), player->ID);
+	mysql->executeSql(str);
+}
+
+PlayerStatT MysqlManager::GetPlayerStat(int id)
+{
+	auto m = mysql->executeSql("select * from PlayerInfo");
+
+	PlayerStatT stat;
+	int key = GetKey(id);
+
+
+	stat.HP = stoi(m["Hp"][key]);
+	stat.HPLim = stoi(m["HpLim"][key]);
+	
+
+	return stat;
+}
+
+Vec3 MysqlManager::GetPlayerPos(int id)
+{
+	int key = GetKey(id);
+	auto m = mysql->executeSql("select * from PlayerInfo");
+
+	Vec3 v3(stof(m["X"][key]), stof(m["Y"][key]), stof(m["Z"][key]));
+
+	return v3;
+}
+
 int MysqlManager::GetPlayerID_KEY(LoginT * data)
 {
-	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from LoginData");
+	auto m = mysql->executeSql("select * from LoginData");
 
 	for (size_t i = 0; i < m["id"].size(); i++) {
 		if (!strncmp(data->id.c_str(), m["id"][i], data->id.length())) {
@@ -94,9 +141,25 @@ int MysqlManager::GetPlayerID_KEY(LoginT * data)
 }
 
 
+int MysqlManager::GetKey(int id)
+{
+	auto m = mysql->executeSql("select * from PlayerInfo");
+	int key;
+
+	for (size_t i = 0; i < m["UserKey"].size(); i++) {
+		if (stoi(m["UserKey"][i]) == id) { key = i; break; }
+	}
+	return key;
+}
+
+int MysqlManager::Getint(const char *str)
+{
+	return atoi(str);
+}
+
 eLogin MysqlManager::GetLoginData(LoginT * data)
 {
-	std::map<const std::string, std::vector<const char*>> m = mysql->executeSql("select * from LoginData");
+	auto m = mysql->executeSql("select * from LoginData");
 
 	//select count(*) from LoginData Where LoginData.id = '2323154';
 	for (size_t i = 0; i < m["id"].size(); i++) {
@@ -111,7 +174,3 @@ eLogin MysqlManager::GetLoginData(LoginT * data)
 	return eLogin::idNone;
 }
 
-int MysqlManager::GetInt(const char * data)
-{
-	return atoi(data);
-}

@@ -8,6 +8,9 @@
 
 struct Vec3;
 
+struct FirstCharacterData;
+struct FirstCharacterDataT;
+
 struct Login;
 struct LoginT;
 
@@ -49,11 +52,12 @@ enum Class {
 	Class_Monster = 7,
 	Class_MonsterStat = 8,
 	Class_LogIn = 9,
+	Class_FirstCharacterData = 10,
 	Class_MIN = Class_Base,
-	Class_MAX = Class_LogIn
+	Class_MAX = Class_FirstCharacterData
 };
 
-inline const Class(&EnumValuesClass())[10]{
+inline const Class(&EnumValuesClass())[11]{
 	static const Class values[] = {
 	Class_Base,
 	Class_Player,
@@ -64,7 +68,8 @@ inline const Class(&EnumValuesClass())[10]{
 	Class_SendMeStat,
 	Class_Monster,
 	Class_MonsterStat,
-	Class_LogIn
+	Class_LogIn,
+	Class_FirstCharacterData
 };
 return values;
 }
@@ -81,6 +86,7 @@ inline const char * const *EnumNamesClass() {
 		"Monster",
 		"MonsterStat",
 		"LogIn",
+		"FirstCharacterData",
 		nullptr
 	};
 	return names;
@@ -117,6 +123,143 @@ public:
 	}
 };
 STRUCT_END(Vec3, 12);
+
+struct FirstCharacterDataT : public flatbuffers::NativeTable {
+	typedef FirstCharacterData TableType;
+	Class cType;
+	std::unique_ptr<Vec3> Pos;
+	int32_t HP;
+	int32_t HPLim;
+	int32_t MP;
+	int32_t MPLim;
+	int32_t LV;
+	int32_t ID;
+	FirstCharacterDataT()
+		: cType(Class_Base),
+		HP(0),
+		HPLim(0),
+		MP(0),
+		MPLim(0),
+		LV(0),
+		ID(0) {
+	}
+};
+
+struct FirstCharacterData FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+	typedef FirstCharacterDataT NativeTableType;
+	enum {
+		VT_CTYPE = 4,
+		VT_POS = 6,
+		VT_HP = 8,
+		VT_HPLIM = 10,
+		VT_MP = 12,
+		VT_MPLIM = 14,
+		VT_LV = 16,
+		VT_ID = 18
+	};
+	Class cType() const {
+		return static_cast<Class>(GetField<int32_t>(VT_CTYPE, 0));
+	}
+	const Vec3 *Pos() const {
+		return GetStruct<const Vec3 *>(VT_POS);
+	}
+	int32_t HP() const {
+		return GetField<int32_t>(VT_HP, 0);
+	}
+	int32_t HPLim() const {
+		return GetField<int32_t>(VT_HPLIM, 0);
+	}
+	int32_t MP() const {
+		return GetField<int32_t>(VT_MP, 0);
+	}
+	int32_t MPLim() const {
+		return GetField<int32_t>(VT_MPLIM, 0);
+	}
+	int32_t LV() const {
+		return GetField<int32_t>(VT_LV, 0);
+	}
+	int32_t ID() const {
+		return GetField<int32_t>(VT_ID, 0);
+	}
+	bool Verify(flatbuffers::Verifier &verifier) const {
+		return VerifyTableStart(verifier) &&
+			VerifyField<int32_t>(verifier, VT_CTYPE) &&
+			VerifyField<Vec3>(verifier, VT_POS) &&
+			VerifyField<int32_t>(verifier, VT_HP) &&
+			VerifyField<int32_t>(verifier, VT_HPLIM) &&
+			VerifyField<int32_t>(verifier, VT_MP) &&
+			VerifyField<int32_t>(verifier, VT_MPLIM) &&
+			VerifyField<int32_t>(verifier, VT_LV) &&
+			VerifyField<int32_t>(verifier, VT_ID) &&
+			verifier.EndTable();
+	}
+	FirstCharacterDataT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+	void UnPackTo(FirstCharacterDataT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
+	static flatbuffers::Offset<FirstCharacterData> Pack(flatbuffers::FlatBufferBuilder &_fbb, const FirstCharacterDataT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+};
+
+struct FirstCharacterDataBuilder {
+	flatbuffers::FlatBufferBuilder &fbb_;
+	flatbuffers::uoffset_t start_;
+	void add_cType(Class cType) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_CTYPE, static_cast<int32_t>(cType), 0);
+	}
+	void add_Pos(const Vec3 *Pos) {
+		fbb_.AddStruct(FirstCharacterData::VT_POS, Pos);
+	}
+	void add_HP(int32_t HP) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_HP, HP, 0);
+	}
+	void add_HPLim(int32_t HPLim) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_HPLIM, HPLim, 0);
+	}
+	void add_MP(int32_t MP) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_MP, MP, 0);
+	}
+	void add_MPLim(int32_t MPLim) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_MPLIM, MPLim, 0);
+	}
+	void add_LV(int32_t LV) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_LV, LV, 0);
+	}
+	void add_ID(int32_t ID) {
+		fbb_.AddElement<int32_t>(FirstCharacterData::VT_ID, ID, 0);
+	}
+	explicit FirstCharacterDataBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+		: fbb_(_fbb) {
+		start_ = fbb_.StartTable();
+	}
+	FirstCharacterDataBuilder &operator=(const FirstCharacterDataBuilder &);
+	flatbuffers::Offset<FirstCharacterData> Finish() {
+		const auto end = fbb_.EndTable(start_);
+		auto o = flatbuffers::Offset<FirstCharacterData>(end);
+		return o;
+	}
+};
+
+inline flatbuffers::Offset<FirstCharacterData> CreateFirstCharacterData(
+	flatbuffers::FlatBufferBuilder &_fbb,
+	Class cType = Class_Base,
+	const Vec3 *Pos = 0,
+	int32_t HP = 0,
+	int32_t HPLim = 0,
+	int32_t MP = 0,
+	int32_t MPLim = 0,
+	int32_t LV = 0,
+	int32_t ID = 0) {
+	FirstCharacterDataBuilder builder_(_fbb);
+	builder_.add_ID(ID);
+	builder_.add_LV(LV);
+	builder_.add_MPLim(MPLim);
+	builder_.add_MP(MP);
+	builder_.add_HPLim(HPLim);
+	builder_.add_HP(HP);
+	builder_.add_Pos(Pos);
+	builder_.add_cType(cType);
+	return builder_.Finish();
+}
+
+flatbuffers::Offset<FirstCharacterData> CreateFirstCharacterData(flatbuffers::FlatBufferBuilder &_fbb, const FirstCharacterDataT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 
 struct LoginT : public flatbuffers::NativeTable {
 	typedef Login TableType;
@@ -1052,6 +1195,53 @@ inline flatbuffers::Offset<Base> CreateBase(
 }
 
 flatbuffers::Offset<Base> CreateBase(flatbuffers::FlatBufferBuilder &_fbb, const BaseT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
+
+inline FirstCharacterDataT *FirstCharacterData::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
+	auto _o = new FirstCharacterDataT();
+	UnPackTo(_o, _resolver);
+	return _o;
+}
+
+inline void FirstCharacterData::UnPackTo(FirstCharacterDataT *_o, const flatbuffers::resolver_function_t *_resolver) const {
+	(void)_o;
+	(void)_resolver;
+	{ auto _e = cType(); _o->cType = _e; };
+	{ auto _e = Pos(); if (_e) _o->Pos = std::unique_ptr<Vec3>(new Vec3(*_e)); };
+	{ auto _e = HP(); _o->HP = _e; };
+	{ auto _e = HPLim(); _o->HPLim = _e; };
+	{ auto _e = MP(); _o->MP = _e; };
+	{ auto _e = MPLim(); _o->MPLim = _e; };
+	{ auto _e = LV(); _o->LV = _e; };
+	{ auto _e = ID(); _o->ID = _e; };
+}
+
+inline flatbuffers::Offset<FirstCharacterData> FirstCharacterData::Pack(flatbuffers::FlatBufferBuilder &_fbb, const FirstCharacterDataT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
+	return CreateFirstCharacterData(_fbb, _o, _rehasher);
+}
+
+inline flatbuffers::Offset<FirstCharacterData> CreateFirstCharacterData(flatbuffers::FlatBufferBuilder &_fbb, const FirstCharacterDataT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
+	(void)_rehasher;
+	(void)_o;
+	struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const FirstCharacterDataT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher }; (void)_va;
+	auto _cType = _o->cType;
+	auto _Pos = _o->Pos ? _o->Pos.get() : 0;
+	auto _HP = _o->HP;
+	auto _HPLim = _o->HPLim;
+	auto _MP = _o->MP;
+	auto _MPLim = _o->MPLim;
+	auto _LV = _o->LV;
+	auto _ID = _o->ID;
+	return CreateFirstCharacterData(
+		_fbb,
+		_cType,
+		_Pos,
+		_HP,
+		_HPLim,
+		_MP,
+		_MPLim,
+		_LV,
+		_ID);
+}
 
 inline LoginT *Login::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
 	auto _o = new LoginT();

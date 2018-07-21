@@ -2,6 +2,8 @@
 #include "MysqlManager.h"
 #include "WriteManager.h"
 #include "ReadManager.h"
+#include "ClientSession.h"
+#include "PlayerStat.h"
 #include <iostream>
 
 
@@ -27,13 +29,17 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 		printf("isSignin.\n");
 		if (m.UserLogin(LoginData)) {
 			auto id = m.GetPlayerID_KEY(LoginData);
-			//보낼때 id지워짐.
+
 			printf("isSuccess. id : %d\n", id);
 			LoginData->isSignin = true;
-			LoginData->id = id;
+			LoginData->id = std::to_string(id);
 
 			flatbuffers::FlatBufferBuilder fbb;
-			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb);
+
+			d->id = id;
+			session::GetSession()[id] = ((session*)d)->shared_from_this();
+
+			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
 		else {
 
@@ -41,9 +47,9 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 			LoginData->isSignin = false;
 
 			flatbuffers::FlatBufferBuilder fbb;
-			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb);
+			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
-			
+
 		//do_writeForServer("wait for login...");
 		//LogManager::GetInstance()->Console()->info("Player is login...");
 		//LogManager::GetInstance()->Log("Player 로그인 요청...");
@@ -61,7 +67,7 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 			LoginData->id = id;
 
 			flatbuffers::FlatBufferBuilder fbb;
-			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb);
+			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
 		else {
 
@@ -69,10 +75,8 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 			LoginData->isSignin = false;
 
 			flatbuffers::FlatBufferBuilder fbb;
-			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb);
+			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
-
-
 
 		//do_writeForServer("wait for isSignUp...");
 		//LogManager::GetInstance()->Console()->info("Player isSignUp...");

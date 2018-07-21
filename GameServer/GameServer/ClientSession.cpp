@@ -51,11 +51,9 @@ void session::start()
 	try {
 		//SetEventTime(3);
 		//TimeManager::GetInstance()->AddTimeEvent(this);
-
-		int newID = PlayerCount();
-
-		id = newID;
-		GetSession()[newID] = shared_from_this();
+		
+		id = -1;
+		//GetSession()[newID] = shared_from_this();
 		NetworkStartManager::NetStart(this);
 	}
 	catch (const std::exception& e) {
@@ -129,11 +127,6 @@ void session::do_read()
 	//}));
 }
 
-int session::PlayerCount()
-{
-	static int c = 0;
-	return c++;
-}
 
 void server::do_accept()
 {

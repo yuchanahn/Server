@@ -14,11 +14,16 @@ class oMonster;
 class oMonsterStatManager;
 class LoginManager;
 
+class PlayerComponent;
+
 
 class oPlayer : public EventSystem
 {
 public:
 	int id;
+
+	PlayerComponent * Components;
+
 	PlayerStatT * m_stat;
 	Vec3 * pos;
 	

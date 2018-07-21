@@ -63,6 +63,7 @@
     <ClCompile Include="oMonsterStatManager.cpp">
       <Filter>Monster</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TimeManager.h">
@@ -135,6 +136,7 @@
     <ClInclude Include="oMonsterStatManager.h">
       <Filter>Monster</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="DB">

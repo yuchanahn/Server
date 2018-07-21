@@ -6,6 +6,9 @@
 
 struct CreateMonsterData;
 struct LoginT;
+struct PlayerStatT;
+struct Vec3;
+struct PlayerT;
 
 class MysqlPool;
 
@@ -21,7 +24,7 @@ class MysqlManager
 
 
 	eLogin GetLoginData(LoginT * data);
-	int GetInt(const char * );
+	int Getint(const char * );
 
 public:
 	MysqlManager();
@@ -33,8 +36,16 @@ public:
 	void CreateID(LoginT * data);
 
 
-	int GetPlayerID_KEY(LoginT * data);
 
+	void SetPlayerStat(PlayerStatT * stat);
+	void SetPlayerPos(PlayerT * player);
+	
+	PlayerStatT GetPlayerStat(int id);
+	Vec3 GetPlayerPos(int id);
+
+
+	int GetPlayerID_KEY(LoginT * data);
+	int GetKey(int id);
 
 	std::list<CreateMonsterData*> GetMonsterInfo();
 };

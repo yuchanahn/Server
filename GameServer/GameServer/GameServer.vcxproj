@@ -119,6 +119,7 @@
     <ClCompile Include="oTimer.cpp" />
     <ClCompile Include="Ping.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="PlayerMove.cpp" />
     <ClCompile Include="PlayerStat.cpp" />
     <ClCompile Include="StatSendManager.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="oTimer.h" />
     <ClInclude Include="Ping.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerComponent.h" />
     <ClInclude Include="PlayerMove.h" />
     <ClInclude Include="PlayerStat.h" />
     <ClInclude Include="StatSendManager.h" />

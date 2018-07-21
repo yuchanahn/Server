@@ -8,8 +8,10 @@ PlayerStat,
 SendMeStat,
 Monster,
 MonsterStat,
-LogIn
+LogIn,
+FirstCharacterData
 }
+
 
 
 struct Vec3 {
@@ -17,6 +19,21 @@ struct Vec3 {
   y:float;
   z:float;
 }
+
+table FirstCharacterData{
+cType:Class;
+Pos:Vec3;
+
+
+HP:int;
+HPLim:int;
+MP:int;
+MPLim:int;
+LV:int;
+
+ID:int;
+}
+
 
 table Login{
 cType:Class;

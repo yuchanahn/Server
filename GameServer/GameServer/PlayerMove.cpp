@@ -2,11 +2,15 @@
 #include "Base_generated.h"
 #include "ReadManager.h"
 #include "WriteManager.h"
+#include "MysqlManager.h"
 
 void PlayerMove::Move()
 {
 	flatbuffers::FlatBufferBuilder fbb; 
 	WriteManager::write_not_me<Player>(Player::Pack(fbb, player),fbb, m_oPlayer);
+
+	MysqlManager m;
+	m.SetPlayerPos(player);
 }
 
 void PlayerMove::EventProsess(oPlayer * d, Base * d2)

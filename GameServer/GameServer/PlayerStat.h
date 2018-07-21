@@ -9,6 +9,7 @@ class cPlayerStat : public NetEvent
 	PlayerStatT * pStat;
 public:
 	virtual void EventProsess(oPlayer * d, Base * d2);
+	static void SendStat(oPlayer*);
 
 	cPlayerStat();
 	~cPlayerStat();

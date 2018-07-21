@@ -55,7 +55,6 @@ public:
 private:
 
 	void do_read();
-	int PlayerCount();
 
 	tcp::socket socket_; //자신의 소켓
 	asio::steady_timer timer_; //타이머.
