@@ -2,6 +2,7 @@
 #include "Base_generated.h"
 #include "ClientSession.h"
 #include "oMonsterManager.h"
+#include "PlayerComponent.h"
 
 #include <stdlib.h>
 #include <float.h>
@@ -55,26 +56,30 @@ void oMonster::UpdatePosition()
 	bool isTargetIn = false;
 
 	for (auto &PlayerObj : session::GetSession()) {
-		CPoint<double> TargetPlayerPos(PlayerObj.second->pos->x(), PlayerObj.second->pos->z());
-		S = GetDistance(TargetPlayerPos, CurrnetPos);
+		if (PlayerObj.second->Components->pos != nullptr) {
+			CPoint<double> TargetPlayerPos(PlayerObj.second->Components->pos->x(), PlayerObj.second->Components->pos->z());
 
-		if ((Range >= S) && (TargetPlayerPos.x && TargetPlayerPos.y)) {
-			TargetPos.Set(TargetPlayerPos);
 
-			if(target != nullptr)
-				if (target->id != PlayerObj.second->id) {
-					PlayerObj.second->addEvent("missingTarget", 
-						[=]() {
+			S = GetDistance(TargetPlayerPos, CurrnetPos);
+
+			if ((Range >= S) && (TargetPlayerPos.x && TargetPlayerPos.y)) {
+				TargetPos.Set(TargetPlayerPos);
+
+				if (target != nullptr)
+					if (target->id != PlayerObj.second->id) {
+						PlayerObj.second->addEvent("missingTarget",
+							[=]() {
 							if (PlayerObj.second->id == target->id) {
 								target = nullptr;
 							}
 						}
-					);
-				}
+						);
+					}
 
-			target = &(*PlayerObj.second);
-			isTargetIn = true;
-			break;
+				target = &(*PlayerObj.second);
+				isTargetIn = true;
+				break;
+			}
 		}
 	}
 

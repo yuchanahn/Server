@@ -24,9 +24,6 @@ public:
 
 	PlayerComponent * Components;
 
-	PlayerStatT * m_stat;
-	Vec3 * pos;
-	
 
 	virtual void do_writeForServer(char * str, int len);
 

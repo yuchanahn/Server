@@ -25,11 +25,12 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 	((Login*)d2)->UnPackTo(LoginData);	
 	MysqlManager m;
 
+
+
 	if (LoginData->isSignin) {
 		printf("isSignin.\n");
-		if (m.UserLogin(LoginData)) {
-			auto id = m.GetPlayerID_KEY(LoginData);
-
+		int id;
+		if (m.IsIdPassSame(LoginData,&id)) {
 			printf("isSuccess.\n ------ id : %d\n------------\n", id);
 			LoginData->isSignin = true;
 			LoginData->id = std::to_string(id);
@@ -38,11 +39,9 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 
 			d->id = id;
 			session::GetSession()[id] = ((session*)d)->shared_from_this();
-
 			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
 		else {
-
 			printf("Not_Success.\n");
 			LoginData->isSignin = false;
 
@@ -56,12 +55,11 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 	}
 	else if(!LoginData->isSignin){
 		printf("isSignUp.\n");
-		if (m.CreateUserData(LoginData)) {
+		if (m.IsIdNone(LoginData)) {
 
 			printf("isSuccess.\n");
-			m.CreateID(LoginData);
+			auto id = m.CreateID(LoginData);
 
-			auto id = m.GetPlayerID_KEY(LoginData);
 
 			printf("i : %d\n\n",id);
 
@@ -72,7 +70,6 @@ void LoginManager::EventProsess(oPlayer * d, Base * d2)
 			WriteManager::write<Login>(Login::Pack(fbb, LoginData), fbb, d);
 		}
 		else {
-
 			printf("Not_Success.\n");
 			LoginData->isSignin = false;
 

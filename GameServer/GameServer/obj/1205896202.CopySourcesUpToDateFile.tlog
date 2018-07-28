@@ -1,54 +1,54 @@
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ClientSession.cpp|636677776053235358|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventManager.cpp|636677796810836752|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventSystem.cpp|636647551061845332|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Loginmanager.cpp|636677926989146211|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\main.cpp|636671675261093305|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.cpp|636671627223467591|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\MysqlManager.cpp|636677923361415507|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.cpp|636677898431018548|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetEvent.cpp|636647551061944790|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkSpeedTest.cpp|636647551061965015|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkStartManager.cpp|636677776053524520|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterManager.cpp|636665817240427415|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterStatManager.cpp|636653570405281958|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oTimer.cpp|636647551088473253|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Ping.cpp|636647551061994668|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Player.cpp|636677776053564426|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerComponent.cpp|636677776053634546|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerMove.cpp|636677776053704102|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStat.cpp|636677839413477332|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\StatSendManager.cpp|636653570403127341|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ReadManager.cpp|636671853476958381|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\RedisManager.cpp|636647551062072944|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManager.cpp|636647551062092895|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TLS.cpp|636647551062082637|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\UserItem.cpp|636677796382575995|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\WriteManager.cpp|636647583589937484|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Base_generated.h|636677776053195185|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ClientSession.h|636677776053285269|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\CPoint.h|636653575980679624|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventManager.h|636647551061835140|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\EventSystem.h|636647551061845332|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Loginmanager.h|636671815585905148|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Logmanager.h|636647551061904906|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Monster.h|636665533060358833|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\MysqlManager.h|636677914480595331|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\mysqlpool.h|636677898430878655|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetEvent.h|636647551061954763|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkSpeedTest.h|636647551061965015|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\NetworkStartManager.h|636647551061984696|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterManager.h|636665533062571982|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oMonsterStatManager.h|636653570405311684|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\oTimer.h|636647551088483229|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Ping.h|636647551061994668|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\Player.h|636677776053604310|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerComponent.h|636677776053664392|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerMove.h|636647551062028564|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\PlayerStat.h|636677776053794054|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\StatSendManager.h|636653570403173283|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\ReadManager.h|636647551062062692|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\RedisManager.h|636647551062072944|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManager.h|636647551062092895|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\TimeManagerEvent.h|636647551062102585|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\UserItem.h|636677796382735584|~/projects/GameServer|
-C:\Users\Atents\Desktop\git\Server\GameServer\GameServer\WriteManager.h|636647551062122545|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ClientSession.cpp|636677173209595101|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventManager.cpp|636678756334608473|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventSystem.cpp|636646092891196063|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Loginmanager.cpp|636683365834869227|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\main.cpp|636657527566902564|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Monster.cpp|636683386055837397|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\MysqlManager.cpp|636683389435345078|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\mysqlpool.cpp|636678889895685192|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetEvent.cpp|636634031499388574|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkSpeedTest.cpp|636634031499408516|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkStartManager.cpp|636673830330071780|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterManager.cpp|636657545751597709|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterStatManager.cpp|636653011545445917|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oTimer.cpp|636634031523575600|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Ping.cpp|636634031499438434|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Player.cpp|636682808906053510|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerComponent.cpp|636673880604674811|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerMove.cpp|636683370281180957|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerStat.cpp|636683388641516906|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\StatSendManager.cpp|636683164801999836|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ReadManager.cpp|636683164591859486|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\RedisManager.cpp|636634031499528193|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManager.cpp|636635402976085317|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TLS.cpp|636634031499549109|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\UserItem.cpp|636678756335107396|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\WriteManager.cpp|636634031499578056|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Base_generated.h|636677059734981620|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ClientSession.h|636673820021693317|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\CPoint.h|636646073255839307|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventManager.h|636634966080679930|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\EventSystem.h|636646985627490053|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Loginmanager.h|636672704063717395|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Logmanager.h|636634031499368629|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Monster.h|636657547561286844|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\MysqlManager.h|636683183042758699|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\mysqlpool.h|636678889874491849|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetEvent.h|636634031499398541|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkSpeedTest.h|636634031499408516|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\NetworkStartManager.h|636634031499428467|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterManager.h|636657531007455042|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oMonsterStatManager.h|636649655272100708|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\oTimer.h|636634031523595551|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Ping.h|636634031499438434|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\Player.h|636682808994146833|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerComponent.h|636677173081197290|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerMove.h|636683164829404899|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\PlayerStat.h|636673909493139686|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\StatSendManager.h|636650530422096713|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\ReadManager.h|636634031499528193|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\RedisManager.h|636634031499538163|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManager.h|636634031499568096|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\TimeManagerEvent.h|636634031499568096|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\UserItem.h|636678756335137080|~/projects/GameServer|
+C:\Users\anyc1\OneDrive\바탕 화면\myGit\Server\GameServer\GameServer\WriteManager.h|636683150862509850|~/projects/GameServer|

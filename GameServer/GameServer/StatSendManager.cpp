@@ -4,6 +4,7 @@
 #include "WriteManager.h"
 #include "ClientSession.h"
 #include "oMonsterManager.h"
+#include "PlayerComponent.h"
 
 void StatSendManager::EventProsess(oPlayer * d, Base * d2)
 {
@@ -36,7 +37,7 @@ void StatSendManager::sPlayerStat(oPlayer * d, SendMeStatT*Sstat)
 		return;
 	}
 	flatbuffers::FlatBufferBuilder fbb;
-	auto stat = session::GetSession()[Sstat->ID]->m_stat;
+	auto stat = session::GetSession()[Sstat->ID]->Components->m_stat;
 	WriteManager::write<PlayerStat>(PlayerStat::Pack(fbb, stat), fbb, d);
 }
 

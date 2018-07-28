@@ -23,32 +23,30 @@ class MysqlManager
 	MysqlPool * mysql;
 
 
-	eLogin GetLoginData(LoginT * data);
 
 public:
 	MysqlManager();
 	~MysqlManager();
 
-	bool UserLogin(LoginT * data);
-	bool CreateUserData(LoginT * data);
-	void CreateID(LoginT * data);
-
+	bool IsIdPassSame(LoginT * data , int * Id);
+	bool IsIdNone(LoginT * data);
+	int CreateID(LoginT * data);
+	
 
 
 	void SetPlayerStat(PlayerStatT * stat);
 	void SetPlayerPos(PlayerT * player);
 	
 	PlayerStatT GetPlayerStat(int id);
-	Vec3 GetPlayerPos(int id);
+	Vec3 * GetPlayerPos(int id);
 
 
-	bool isPlayerID(char * id);
-	bool isPlayerPass(char * pass);
+	int isPlayerIDandPass(char * id, char * pass);
 
 	int GetDataCount_LogIn(char * str);
 
 
-	int GetPlayerID_KEY(LoginT * data);
+	eLogin GetLoginData(LoginT * data, int * ID);
 
 	std::list<CreateMonsterData*> GetMonsterInfo();
 };
